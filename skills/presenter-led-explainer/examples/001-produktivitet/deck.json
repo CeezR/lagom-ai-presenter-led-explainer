@@ -1,0 +1,121 @@
+{
+  "title": "Avsnitt 1: Varför syns inte AI i siffrorna?",
+  "lang": "sv",
+  "slides": [
+    {
+      "id": "s01",
+      "title": "Frågan",
+      "points": [
+        "Alla blir snabbare med AI – syns inte i siffrorna.",
+        "Det kallas produktivitetsparadoxen."
+      ]
+    },
+    {
+      "id": "s02",
+      "title": "Riksbanken",
+      "points": [
+        "41 av Sveriges största företag.",
+        "Nästan alla använder AI.",
+        "Effekten än så länge liten."
+      ]
+    },
+    {
+      "id": "s03",
+      "title": "Teamet som ett band",
+      "points": [
+        "Varje ändring är ett paket.",
+        "Utvecklare → granskning → test → godkännande → användare."
+      ]
+    },
+    {
+      "id": "s04",
+      "title": "AI-kollegan",
+      "points": [
+        "Utvecklarna får AI, paketen flyger iväg.",
+        "Men användarna väntar lika länge."
+      ]
+    },
+    {
+      "id": "s05",
+      "title": "Flaskhalsen",
+      "points": [
+        "Kö framför granskning, test, godkännande.",
+        "Flödet går aldrig fortare än sitt långsammaste steg.",
+        "Theory of Constraints, Goldratt, The Goal (1984)."
+      ]
+    },
+    {
+      "id": "s06",
+      "title": "Ångfabriken",
+      "points": [
+        "Paul David: elen kom runt 1900.",
+        "En ångmaskin, en axel i taket, remmar till varje maskin.",
+        "Därför fabriker på höjden."
+      ]
+    },
+    {
+      "id": "s07",
+      "title": "Elmotorn i den gamla fabriken",
+      "points": [
+        "Bytte ångmaskinen mot en elmotor, axeln satt kvar.",
+        "Inget lyft.",
+        "Under 5 % el 1899, ungefär hälften 20 år senare."
+      ]
+    },
+    {
+      "id": "s08",
+      "title": "Den nya fabriken",
+      "points": [
+        "En liten motor i varje maskin.",
+        "Ett plan, maskinerna i flödesordning.",
+        "Lyftet på 1920-talet – inte motorn, utan fabriken."
+      ]
+    },
+    {
+      "id": "s09",
+      "title": "Datorerna",
+      "points": [
+        "Solow 1987: syns överallt utom i statistiken.",
+        "Dator på varje bord, men blanketter, pärmar och stämplar kvar.",
+        "Skriv ut, skriv in igen."
+      ]
+    },
+    {
+      "id": "s10",
+      "title": "Kontoren byggs om",
+      "points": [
+        "Produktiviteten i USA tog fart sent 90-tal.",
+        "Brynjolfsson och Hitt: lyftet kom hos de som byggde om arbetet.",
+        "Färre mellansteg, beslut närmare jobbet."
+      ]
+    },
+    {
+      "id": "s11",
+      "title": "J-kurvan",
+      "points": [
+        "Tid längs botten, produktivitet uppåt.",
+        "Ny teknik: man kunde tro att linjen går rakt upp.",
+        "Men först går den ner. En svacka."
+      ]
+    },
+    {
+      "id": "s12",
+      "title": "J-kurvan: uppförsbacken",
+      "points": [
+        "Tid och pengar går till sådant som inte syns: lära om, bygga om.",
+        "När det nya arbetssättet sitter vänder kurvan och stiger brant.",
+        "Först syns kostnaden, nyttan kommer efter.",
+        "El, datorer – nu står AI i början."
+      ]
+    },
+    {
+      "id": "s13",
+      "title": "Tillbaka till teamet",
+      "points": [
+        "Teamet har fått sin elmotor.",
+        "Men bandet är byggt för den gamla farten, som axeln i taket.",
+        "Det som räknas är vad som kommer fram."
+      ]
+    }
+  ]
+}

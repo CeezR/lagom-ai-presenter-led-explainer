@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="sv"><head><meta charset="utf-8">
+<title>Avsnitt 1: Varför syns inte AI i siffrorna?</title>
+<link rel="stylesheet" href="runtime/vendor/dist/reset.css">
+<link rel="stylesheet" href="runtime/vendor/dist/reveal.css">
+<style>
+html,body{background:#fff}
+.reveal .slides section{padding:0;height:100%;width:100%;text-align:left}
+.reveal iframe{position:absolute;inset:0;width:1920px;height:1080px;border:0;pointer-events:none;background:#fff}
+.reveal .fragment{display:none}
+#pts{display:none;position:fixed;left:16px;bottom:16px;max-width:42vw;background:rgba(42,36,32,.92);color:#fff;font:600 20px/1.35 Kalam,cursive,sans-serif;padding:14px 18px;border-radius:12px;z-index:9}
+#pts b{color:#F07A1A} #pts div{opacity:.35} #pts div.on{opacity:1}
+</style></head>
+<body>
+<div class="reveal"><div class="slides">
+<section data-scene="scenes/s01.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span></section>
+<section data-scene="scenes/s02.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s03.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span></section>
+<section data-scene="scenes/s04.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span></section>
+<section data-scene="scenes/s05.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s06.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s07.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s08.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s09.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s10.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s11.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+<section data-scene="scenes/s12.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span><span class="fragment" data-fragment-index="3"></span></section>
+<section data-scene="scenes/s13.html"><iframe tabindex="-1"></iframe><span class="fragment" data-fragment-index="0"></span><span class="fragment" data-fragment-index="1"></span><span class="fragment" data-fragment-index="2"></span></section>
+</div></div>
+<div id="pts"></div>
+<script src="runtime/vendor/dist/reveal.js"></script>
+<script>
+const POINTS = [["Frågan","Alla blir snabbare med AI – syns inte i siffrorna.","Det kallas produktivitetsparadoxen."],["Riksbanken","41 av Sveriges största företag.","Nästan alla använder AI.","Effekten än så länge liten."],["Teamet som ett band","Varje ändring är ett paket.","Utvecklare → granskning → test → godkännande → användare."],["AI-kollegan","Utvecklarna får AI, paketen flyger iväg.","Men användarna väntar lika länge."],["Flaskhalsen","Kö framför granskning, test, godkännande.","Flödet går aldrig fortare än sitt långsammaste steg.","Theory of Constraints, Goldratt, The Goal (1984)."],["Ångfabriken","Paul David: elen kom runt 1900.","En ångmaskin, en axel i taket, remmar till varje maskin.","Därför fabriker på höjden."],["Elmotorn i den gamla fabriken","Bytte ångmaskinen mot en elmotor, axeln satt kvar.","Inget lyft.","Under 5 % el 1899, ungefär hälften 20 år senare."],["Den nya fabriken","En liten motor i varje maskin.","Ett plan, maskinerna i flödesordning.","Lyftet på 1920-talet – inte motorn, utan fabriken."],["Datorerna","Solow 1987: syns överallt utom i statistiken.","Dator på varje bord, men blanketter, pärmar och stämplar kvar.","Skriv ut, skriv in igen."],["Kontoren byggs om","Produktiviteten i USA tog fart sent 90-tal.","Brynjolfsson och Hitt: lyftet kom hos de som byggde om arbetet.","Färre mellansteg, beslut närmare jobbet."],["J-kurvan","Tid längs botten, produktivitet uppåt.","Ny teknik: man kunde tro att linjen går rakt upp.","Men först går den ner. En svacka."],["J-kurvan: uppförsbacken","Tid och pengar går till sådant som inte syns: lära om, bygga om.","När det nya arbetssättet sitter vänder kurvan och stiger brant.","Först syns kostnaden, nyttan kommer efter.","El, datorer – nu står AI i början."],["Tillbaka till teamet","Teamet har fått sin elmotor.","Men bandet är byggt för den gamla farten, som axeln i taket.","Det som räknas är vad som kommer fram."]];
+Reveal.initialize({width:1920,height:1080,margin:0,hash:true,controls:false,progress:false,transition:'fade',slideNumber:false,fragments:true});
+const frame = s => s && s.querySelector('iframe');
+const shown = s => s.querySelectorAll('.fragment.visible').length;
+const all = () => [...document.querySelectorAll('.slides > section')];
+function load(s) { const f = frame(s); if (f && !f.src.includes('scenes/')) f.src = s.dataset.scene; return f; }
+function enter(s) {
+  const f = load(s); if (!f) return;
+  const send = () => f.contentWindow.postMessage({type: 'enter', step: shown(s)}, '*');
+  if (f.dataset.ready) send(); else f.addEventListener('load', () => { f.dataset.ready = 1; send(); }, {once: true});
+}
+function near() { const a = all(), i = a.indexOf(Reveal.getCurrentSlide()); [a[i], a[i + 1]].forEach(s => s && load(s)); }
+function notes() { const s = Reveal.getCurrentSlide(), i = all().indexOf(s), n = shown(s);
+  document.getElementById('pts').innerHTML = POINTS[i].map((t, j) => j === 0 ? '<b>' + t + '</b>' : '<div class="' + (j <= n ? 'on' : '') + '">' + j + '. ' + t + '</div>').join(''); }
+Reveal.on('ready', e => { near(); enter(e.currentSlide); notes(); });
+Reveal.on('slidechanged', e => { near(); enter(e.currentSlide); notes(); });
+const sync = () => { const s = Reveal.getCurrentSlide(), f = frame(s); if (f && f.contentWindow) f.contentWindow.postMessage({type: 'step', step: shown(s)}, '*'); notes(); };
+Reveal.on('fragmentshown', sync); Reveal.on('fragmenthidden', sync);
+addEventListener('keydown', e => { if (e.key === 't' || e.key === 'T') { const p = document.getElementById('pts'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } });
+</script></body></html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{lang}}"><head><meta charset="utf-8"><title>{{title}}</title>
+<link rel="stylesheet" href="../runtime/scene.css">
+</head><body data-steps="{{steps}}">
+<div id="frame">
+  <div class="layer on" data-place="{{id}}">
+    <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+      <!-- The drawing for this slide goes here. Give every object an id; see style/STYLE.md. -->
+      <rect id="placeholder" x="560" y="300" width="800" height="480" rx="24" fill="#FBF4E6" stroke="#2A2420" stroke-width="6"/>
+    </svg>
+  </div>
+  <div id="cap"></div>
+</div>
+<script src="../runtime/motion.js"></script>
+<script>
+M.captions([
+{{captions}}
+]);
+const A = M.layer('{{id}}');
+// A.track('placeholder', t => ({ r: 2 * M.wave(t, 1.2) }));   // example: a gentle wobble
+</script>
+<script>M.start();</script>
+</body></html>

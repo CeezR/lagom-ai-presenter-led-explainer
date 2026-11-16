@@ -1,0 +1,15 @@
+/* Shared look of every scene page: one full 1920x1080 frame = the place drawing plus one handwritten line (the caption). */
+@font-face{font-family:Kalam;font-weight:400;src:url(vendor/kalam-latin-400-normal.woff2)}
+@font-face{font-family:Kalam;font-weight:700;src:url(vendor/kalam-latin-700-normal.woff2)}
+:root{--ink:#2A2420;--orange:#F07A1A}
+html,body{margin:0;height:100%;background:#fff;overflow:hidden;font-family:Kalam,"Comic Neue",cursive;color:var(--ink)}
+#frame{position:absolute;width:1920px;height:1080px;transform-origin:0 0;background:#fff;overflow:hidden}
+.layer{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.layer.on{opacity:1}
+.layer svg{width:100%;height:100%;display:block}
+.layer[data-tint] #bg{display:none}
+.layer[data-leak] :is(#belt-ground,#lectern,#huts,#hut-labels,#belt,#users-house){display:none}
+#cap{position:absolute;left:90px;right:90px;top:34px;font-size:60px;line-height:1.1;font-weight:700;text-align:left;pointer-events:none}
+#cap em{font-style:normal;color:var(--orange)}
+#cap.write{animation:write 1s cubic-bezier(.3,.7,.2,1) both}
+@keyframes write{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}

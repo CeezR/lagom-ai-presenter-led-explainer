@@ -1,0 +1,85 @@
+# The svg is the drawing. Parts and pivots are copied from it.
+id: robot
+name: Robot (AI mascot)
+kind: mascot
+tags:
+- robot
+- ai
+description: 'The robot colleague, front and three-quarter: TV head, orange eyes, orange antenna, hover shadow.'
+first_episode: 001-produktivitet
+used_in:
+- 001-produktivitet
+parts:
+- id: robot-hover
+  part: hover
+- id: robot-body
+  part: body
+- id: robot-head
+  part: head
+  pivot: 0 -124
+- id: robot-neck
+  part: neck
+- id: robot-antenna
+  part: antenna
+  pivot: 0 -232
+- id: robot-screen
+  part: screen
+- id: robot-eyes
+  part: eyes
+- id: robot-mouth
+  part: mouth
+- id: robot-arm-l
+  part: arm-l
+  pivot: -46 -104
+- id: robot-arm-l-fore
+  part: arm-l-fore
+  pivot: -70 -84
+- id: robot-hand-l
+  part: hand-l
+  pivot: 0 0
+- id: robot-arm-r
+  part: arm-r
+  pivot: 46 -104
+- id: robot-arm-r-fore
+  part: arm-r-fore
+  pivot: 70 -84
+- id: robot-hand-r
+  part: hand-r
+  pivot: 0 0
+- id: robot-q-hover
+  part: hover
+- id: robot-q-arm-r
+  part: arm-r
+  pivot: 46 -104
+- id: robot-q-arm-r-fore
+  part: arm-r-fore
+  pivot: 70 -84
+- id: robot-q-hand-r
+  part: hand-r
+  pivot: 0 0
+- id: robot-q-body
+  part: body
+- id: robot-q-head
+  part: head
+  pivot: 0 -124
+- id: robot-q-neck
+  part: neck
+- id: robot-q-antenna
+  part: antenna
+  pivot: 6 -232
+- id: robot-q-screen
+  part: screen
+- id: robot-q-eyes
+  part: eyes
+- id: robot-q-mouth
+  part: mouth
+- id: robot-q-arm-l
+  part: arm-l
+  pivot: -46 -104
+- id: robot-q-arm-l-fore
+  part: arm-l-fore
+  pivot: -70 -84
+- id: robot-q-hand-l
+  part: hand-l
+  pivot: 0 0
+designer: Apollo

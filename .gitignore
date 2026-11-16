@@ -1,0 +1,14 @@
+# Recordings and edits stay on the machine.
+videos/*/takes/*
+!videos/*/takes/.gitkeep
+videos/*/out/
+*.mkv
+*.mp4
+*.mov
+*.webm
+*.wav
+*.mp3
+*.m4a
+
+.DS_Store
+node_modules/
