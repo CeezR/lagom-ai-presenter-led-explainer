@@ -38,7 +38,7 @@ else if (['new', 'build', 'open', 'record', 'transcribe'].includes(cmd)) {
 } else {
   console.log(`presenter-led-explainer
   install [--claude|--copilot|--agents] [--global] [--dir <path>]   copy the skill where your agent reads skills
-  new <slug>        scaffold videos/NNN-slug/ (script, deck, takes)
+  new <slug> [--name N --brand B --tagline T]   scaffold videos/NNN-slug/ (script, deck with intro + outro, takes)
   build [video]     rebuild the deck's index.html from deck.json
   open [video]      open the deck in your browser
   record [video]    serve the deck and record in the browser (R = start/stop)

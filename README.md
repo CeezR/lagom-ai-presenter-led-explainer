@@ -29,7 +29,7 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 
 | Command | What it does |
 |---|---|
-| `new <slug>` | Scaffold `videos/NNN-slug/`: `script.md`, `deck.json`, `scenes/`, `runtime/`, `takes/` |
+| `new <slug> [--name ... --brand ... --tagline ...]` | Scaffold `videos/NNN-slug/`: `script.md`, `deck.json` (hook, intro, outro), `scenes/`, `runtime/`, `takes/` |
 | `build [video]` | Rebuild `index.html` from `deck.json` |
 | `open [video]` | Open the deck in your browser without recording (arrow keys = next slide, **N** speaker notes in a separate window) |
 | `record [video]` | Serve the deck on localhost and open it in Chrome/Edge. **R** start/stop recording, **N** notes window, F11 full screen. Takes are saved in `takes/` |
@@ -45,8 +45,8 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 - `SKILL.md`: the workflow the agent follows.
 - `runtime/`: Reveal.js, the scene stylesheet and a small animation engine (`motion.js`, conveyor and office kits).
 - `style/`: the default look (palette, handwriting font, object-only world rules, robot mascot).
-- `templates/`: the scene page.
-- `examples/001-produktivitet/`: a finished 13-slide animated deck (Swedish). Open its `index.html`.
+- `templates/`: the scene page, plus the intro and outro slides (your name and brand, written by the robot mascot).
+- `examples/001-produktivitet/`: a finished 15-slide animated deck (Swedish): hook, intro, the story, outro. Open its `index.html`.
 - `reference/`: deck format, recording, editing.
 
 No recordings, keys or accounts are involved. Takes stay in each video's `takes/` folder and are gitignored.

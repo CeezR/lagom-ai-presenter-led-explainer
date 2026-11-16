@@ -1,6 +1,11 @@
 {
   "title": "Avsnitt 1: Varför syns inte AI i siffrorna?",
   "lang": "sv",
+  "presenter": {
+    "name": "César Forthomme",
+    "brand": "Lagom AI",
+    "tagline": "AI begripligt och användbart för alla"
+  },
   "slides": [
     {
       "id": "s01",
@@ -8,6 +13,18 @@
       "notes": [
         "Alla blir snabbare med AI.",
         "Ändå syns det inte i siffrorna."
+      ]
+    },
+    {
+      "id": "intro",
+      "template": "intro",
+      "title": "Det här är jag",
+      "notes": [
+        "DRAFT: Hej, jag heter César Forthomme.",
+        "DRAFT: Systemutvecklare, bygger med AI-agenter varje dag.",
+        "DRAFT: Driver Lagom AI: AI begripligt och användbart för alla.",
+        "DRAFT: Svenska förklaringar av AI, en fråga per video.",
+        "DRAFT: I dag: varför syns inte AI i siffrorna?"
       ]
     },
     {
@@ -116,6 +133,16 @@
         "Teamet har fått sin elmotor.",
         "Men bandet är byggt för den gamla farten, som axeln i taket.",
         "Det som räknas är vad som kommer fram."
+      ]
+    },
+    {
+      "id": "outro",
+      "title": "Avslutning",
+      "notes": [
+        "DRAFT: Ett snabbare steg ger inte snabbare arbete – lyftet kommer när arbetet byggs om runt AI.",
+        "DRAFT: Jag heter César, och det här var Lagom AI. Vi ses i nästa video.",
+        "DRAFT: Nästa video: [teaser kommer].",
+        "DRAFT (valfritt): Länk i beskrivningen."
       ]
     }
   ]

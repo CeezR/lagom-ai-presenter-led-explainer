@@ -18,6 +18,16 @@ Om alla blir snabbare med AI, varför syns det inte i siffrorna?
 
 *12 ord* · **Scen:** S01 · Källa: Frågan. Underbyggs i beat 2–3.
 
+## Intro (UTKAST)
+
+Utkast, formuleringen är inte klar. Talas fritt, ca 15–20 s. **Scen:** intro (roboten skriver "Lagom AI").
+
+- Hej, jag heter César Forthomme.
+- Systemutvecklare, bygger med AI-agenter varje dag.
+- Driver Lagom AI: AI begripligt och användbart för alla.
+- Svenska förklaringar av AI, en fråga per video.
+- I dag: varför syns inte AI i siffrorna?
+
 ## 2
 
 Riksbanken frågade 41 av Sveriges största företag. Nästan alla använder AI.
@@ -317,6 +327,15 @@ Men bandet är byggt för den gamla farten. Precis som axeln i taket.
 Det som räknas är inte hur fort ett steg går. Det är vad som kommer fram.
 
 *16 ord* · **Scen:** S15 · Källa: Slutrepliken (oförändrad sedan v3).
+
+## Outro (UTKAST)
+
+Utkast. Talas fritt, ca 15 s. **Scen:** outro (bandet går lugnt, paketen kommer fram, "Lagom AI" skrivs ovanför).
+
+- Ett snabbare steg ger inte snabbare arbete. Lyftet kommer när arbetet byggs om runt AI.
+- Jag heter César, och det här var Lagom AI. Vi ses i nästa video.
+- Nästa video: [teaser kommer].
+- (Valfritt) Länk i beskrivningen.
 
 # Faktaläge och osäkerheter
 
