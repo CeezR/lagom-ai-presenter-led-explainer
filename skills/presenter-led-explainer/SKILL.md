@@ -1,12 +1,12 @@
 ---
 name: presenter-led-explainer
-description: Plan and produce a presenter-led explainer video where a human talks to a Reveal.js deck while OBS records their face, voice and screen. Use when the user wants to turn a topic or idea into an explainer video, write the script and slides for one, start a recording, or edit a recorded take.
+description: Plan and produce a presenter-led explainer video where a human talks to a Reveal.js deck while the browser records their face, voice and the slides. Use when the user wants to turn a topic or idea into an explainer video, write the script and slides for one, start a recording, or edit a recorded take.
 ---
 
 # Presenter-led explainer
 
 The human is the presenter. Your job is everything around them: shape the idea, write a script they can read or listen to,
-build a deck they can talk to, get OBS recording, and edit the take afterwards. You never synthesize their voice.
+build a deck they can talk to, get the recording running in the browser, and edit the take afterwards. You never synthesize their voice.
 
 ## Workflow
 
@@ -22,8 +22,10 @@ build a deck they can talk to, get OBS recording, and edit the take afterwards. 
    Run `node <skill>/scripts/build.mjs` after changing `deck.json`.
 5. **Review with the user.** Run `node <skill>/scripts/open.mjs`. The user steps through the deck (arrow keys, T = talking
    points). Iterate until they approve the script and the slides. Do not record before they approve.
-6. **Record.** `node <skill>/scripts/record.mjs` starts OBS recording into `videos/NNN-slug/takes/`. The user presents a few
-   takes and stops OBS. First time on a machine: follow `reference/obs-setup.md`.
+6. **Record.** `node <skill>/scripts/record.mjs` serves the deck on localhost and opens it in Chrome or Edge. In the page: F11 for
+   full screen, **R** starts (3-2-1) and **R** stops, arrow keys step through the points, **N** opens the talking points in a
+   separate window that is not recorded. The webcam appears as a bubble in the corner. Takes land in `videos/NNN-slug/takes/`.
+   The user presents a few takes. Details: `reference/recording.md`.
 7. **Edit.** `node <skill>/scripts/transcribe.mjs takes/<file>` gives a transcript. Then follow `reference/editing.md`:
    pick the best take, cut mistakes and dead air, add chapters, write the title and description. Keep the original takes.
 

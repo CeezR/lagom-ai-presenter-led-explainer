@@ -1,7 +1,7 @@
 {
   "name": "lagom-ai-presenter-led-explainer",
   "version": "0.1.0",
-  "description": "An AI agent skill for presenter-led explainer videos: script + Reveal.js deck, recorded in OBS, edited by AI.",
+  "description": "An AI agent skill for presenter-led explainer videos: script + Reveal.js deck, recorded in the browser, edited by AI.",
   "type": "module",
   "bin": { "presenter-led-explainer": "bin/cli.js" },
   "engines": { "node": ">=18" },

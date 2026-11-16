@@ -1,10 +1,10 @@
 # Presenter-led explainer
 
-An AI agent skill for making **presenter-led explainer videos**: you talk to a Reveal.js deck while OBS records your face,
-voice and screen. The AI helps with the idea, the script, the slides and the edit. You are always the voice.
+An AI agent skill for making **presenter-led explainer videos**: you talk to a Reveal.js deck while your browser records your face,
+voice and the slides. No recording software to install. The AI helps with the idea, the script, the slides and the edit. You are always the voice.
 
 ```
-idea  ->  script.md + deck  ->  you approve  ->  record in OBS (a few takes)  ->  AI edits
+idea  ->  script.md + deck  ->  you approve  ->  record in the browser (a few takes)  ->  AI edits
 ```
 
 ## Install
@@ -31,14 +31,13 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 |---|---|
 | `new <slug>` | Scaffold `videos/NNN-slug/`: `script.md`, `deck.json`, `scenes/`, `runtime/`, `takes/` |
 | `build [video]` | Rebuild `index.html` from `deck.json` |
-| `open [video]` | Open the deck in your browser (arrow keys step, **T** shows the talking points) |
-| `record [video]` | Start OBS recording into the video's `takes/` folder |
+| `open [video]` | Open the deck in your browser without recording (arrow keys step, **T** shows the talking points) |
+| `record [video]` | Serve the deck on localhost and open it in Chrome/Edge. **R** start/stop recording, **N** notes window, F11 full screen. Takes are saved in `takes/` |
 | `transcribe <take>` | Whisper transcript, the basis for AI editing |
 
 ## Requirements
 
-- [OBS Studio](https://obsproject.com) for recording (one-time scene setup: `skills/presenter-led-explainer/reference/obs-setup.md`).
-  `record` was written for Windows, macOS and Linux install paths; Windows is the main target.
+- Chrome or Edge (already on Windows) and Node 18+. The browser asks once per session for camera, microphone and "share this tab".
 - Optional: `ffmpeg`, `auto-editor` and `openai-whisper` for editing and transcripts.
 
 ## What is in the skill
@@ -48,7 +47,7 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 - `style/`: the default look (palette, handwriting font, object-only world rules, robot mascot).
 - `templates/`: the scene page.
 - `examples/001-produktivitet/`: a finished 13-slide animated deck (Swedish). Open its `index.html`.
-- `reference/`: deck format, OBS setup, editing.
+- `reference/`: deck format, recording, editing.
 
 No recordings, keys or accounts are involved. Takes stay in each video's `takes/` folder and are gitignored.
 

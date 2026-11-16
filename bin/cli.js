@@ -41,6 +41,6 @@ else if (['new', 'build', 'open', 'record', 'transcribe'].includes(cmd)) {
   new <slug>        scaffold videos/NNN-slug/ (script, deck, takes)
   build [video]     rebuild the deck's index.html from deck.json
   open [video]      open the deck in your browser
-  record [video]    start OBS recording into the video's takes/ folder
+  record [video]    serve the deck and record in the browser (R = start/stop)
   transcribe <file> transcribe a take with Whisper`);
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /* Build a video's deck: deck.json + scenes/<id>.html -> index.html (the Reveal.js shell).
    Why: each slide is its own HTML page (scenes/), shown in an iframe; one invisible fragment per talking point makes the
-   arrow key step through the points while the scene page animates. Press T in the deck to see the talking points.
+   arrow key step through the points while the scene page animates. Keys in the deck: T = talking points on the slide, N = talking points in a separate window (not recorded), R = record.
    Run: node build.mjs [videos/001-slug] */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -48,14 +48,22 @@ function enter(s) {
   if (f.dataset.ready) send(); else f.addEventListener('load', () => { f.dataset.ready = 1; send(); }, {once: true});
 }
 function near() { const a = all(), i = a.indexOf(Reveal.getCurrentSlide()); [a[i], a[i + 1]].forEach(s => s && load(s)); }
+let popup = null;
 function notes() { const s = Reveal.getCurrentSlide(), i = all().indexOf(s), n = shown(s);
-  document.getElementById('pts').innerHTML = POINTS[i].map((t, j) => j === 0 ? '<b>' + t + '</b>' : '<div class="' + (j <= n ? 'on' : '') + '">' + j + '. ' + t + '</div>').join(''); }
+  const html = POINTS[i].map((t, j) => j === 0 ? '<b>' + t + '</b>' : '<div class="' + (j <= n ? 'on' : '') + '">' + j + '. ' + t + '</div>').join('');
+  document.getElementById('pts').innerHTML = html;
+  if (popup && !popup.closed) popup.document.body.innerHTML = html; }
+function openNotes() { popup = window.open('', 'notes', 'width=560,height=640'); if (!popup) return;
+  popup.document.title = 'Notes'; popup.document.head.innerHTML = '<style>body{font:600 28px/1.4 Kalam,"Comic Sans MS",cursive;background:#2A2420;color:#fff;padding:20px}b{color:#F07A1A;font-size:34px}div{opacity:.35;margin-top:14px}div.on{opacity:1}</style>'; notes(); }
 Reveal.on('ready', e => { near(); enter(e.currentSlide); notes(); });
 Reveal.on('slidechanged', e => { near(); enter(e.currentSlide); notes(); });
 const sync = () => { const s = Reveal.getCurrentSlide(), f = frame(s); if (f && f.contentWindow) f.contentWindow.postMessage({type: 'step', step: shown(s)}, '*'); notes(); };
 Reveal.on('fragmentshown', sync); Reveal.on('fragmenthidden', sync);
-addEventListener('keydown', e => { if (e.key === 't' || e.key === 'T') { const p = document.getElementById('pts'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } });
-</script></body></html>`;
+addEventListener('keydown', e => { if (e.key === 'n' || e.key === 'N') { e.preventDefault(); e.stopPropagation(); openNotes(); }
+  if (e.key === 't' || e.key === 'T') { const p = document.getElementById('pts'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } }, true);
+</script>
+<script src="runtime/recorder.js"></script>
+</body></html>`;
 }
 
 /** Build index.html for one video folder; complain about slides without a scene file. */

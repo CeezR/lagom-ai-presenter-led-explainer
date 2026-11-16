@@ -2,7 +2,7 @@
 /* Transcribe a take with Whisper (subtitles + text next to the take).
    Why: the transcript is what the AI edits from: cut mistakes, find chapters, write the description.
    Needs the "whisper" command (pip install openai-whisper) and ffmpeg on PATH. Nothing is sent to a service.
-   Run: node transcribe.mjs <takes/take-....mkv> [--model small] [--lang sv] */
+   Run: node transcribe.mjs <takes/take-....webm> [--model small] [--lang sv] */
 import { spawnSync } from 'node:child_process';
 import { dirname, resolve } from 'node:path';
 
