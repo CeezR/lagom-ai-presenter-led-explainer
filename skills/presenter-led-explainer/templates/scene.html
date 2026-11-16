@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="{{lang}}"><head><meta charset="utf-8"><title>{{title}}</title>
 <link rel="stylesheet" href="../runtime/scene.css">
-</head><body data-steps="{{steps}}">
+</head><body data-cues='[1, 4]' data-loop="12">
+<!-- data-cues: seconds at which step 1, 2... start (M.since(n) counts from there). data-loop: restart after N seconds; remove it to play once and rest. -->
 <div id="frame">
   <div class="layer on" data-place="{{id}}">
     <svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
@@ -13,11 +14,10 @@
 </div>
 <script src="../runtime/motion.js"></script>
 <script>
-M.captions([
-{{captions}}
-]);
+M.captions({{caption}});   // one line per slide, <em> = orange
 const A = M.layer('{{id}}');
-// A.track('placeholder', t => ({ r: 2 * M.wave(t, 1.2) }));   // example: a gentle wobble
+// A.track('placeholder', t => ({ r: 2 * M.wave(t, 1.2) }));          // ambient: a gentle wobble
+// A.track('placeholder', t => ({ o: M.since(1) < 0 ? 0 : 1 }));      // appears when step 1 starts (cue 1)
 </script>
 <script>M.start();</script>
 </body></html>

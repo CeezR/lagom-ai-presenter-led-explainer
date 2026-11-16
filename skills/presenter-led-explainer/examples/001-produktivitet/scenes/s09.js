@@ -1,11 +1,6 @@
 /* s09 · Datorerna (beat 31-35): 1987, a PC on every desk. Solow's quote drops in. Then paper sheets walk the zig-zag from desk to desk:
    printed out on one computer, typed into the next. */
-M.captions([
-  'Samma sak hände med <em>datorerna</em>',
-  '1987: datoråldern syns överallt, utom i <em>produktivitetsstatistiken</em>',
-  'En dator på varje skrivbord, men <em>blanketterna</em>, pärmarna och stämplarna fanns kvar',
-  'Man skrev <em>ut</em> från en dator och skrev <em>in</em> samma sak i nästa',
-]);
+M.captions('Samma sak hände med <em>datorerna</em>');
 const A = M.layer('P10');
 office(A, [1, 2, 3, 4]);
 A.track('gauge-needle', t => ({ r: 2.5 * M.wave(t, .9) }));

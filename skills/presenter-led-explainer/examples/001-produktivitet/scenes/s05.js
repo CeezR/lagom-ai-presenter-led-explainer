@@ -1,11 +1,6 @@
 /* s05 · Flaskhalsen (beat 11-14). Point 1: parcels leave the stations and land on three growing piles in front of review, test and approval.
    Point 2 outlines the bottleneck, point 3 raises the book (Goldratt, The Goal). */
-M.captions([
-  'Paket kommer fortare än de går ut',
-  'Paketen står i <em>kö</em>: framför granskningen, testet och godkännandet',
-  'Ett flöde går aldrig fortare än sitt <em>långsammaste steg</em>',
-  'Gör man ett annat steg snabbare växer bara <em>högen</em> framför flaskhalsen',
-]);
+M.captions('Ett flöde går aldrig fortare än sitt <em>långsammaste steg</em>');
 const A = M.layer('P05');
 A.belt('belt-rollers', 260);
 A.huts(1.3);

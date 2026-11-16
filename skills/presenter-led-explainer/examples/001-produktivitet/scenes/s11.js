@@ -1,11 +1,6 @@
 /* s11 · J-kurvan (beat 39-42). The axes are drawn in (point 1, time along the bottom, productivity upwards), the new technique arrives
    and the line is expected to shoot up (point 2), but first it goes down: the dip is drawn (point 3). */
-M.captions([
-  'Ekonomer ritar det här som en kurva. Vi tar den <em>bit för bit</em>',
-  'Längs botten går <em>tiden</em>. Uppåt går <em>produktiviteten</em>: hur mycket som blir klart',
-  'Här kommer den <em>nya tekniken</em>. Man kunde tro att linjen går rakt upp',
-  'Men först går den <em>ner</em>. En svacka',
-]);
+M.captions('Linjen går inte rakt upp. Först går den <em>ner</em>');
 const A = M.layer('P13-axes');
 A.frame(() => { const a = M.since(1);
   M.draw(A.el('axis-x'), a < 0 ? 0 : (a - .1) / 1.3); M.draw(A.el('axis-y'), a < 0 ? 0 : (a - 1.4) / 1.3); });

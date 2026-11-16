@@ -1,10 +1,6 @@
 /* s03 · Teamet som ett band (beat 5-7). Point 1: the code folds up into a parcel that drops onto the belt. Point 2: it rides through the
    four stations (waits at each while the lamp, lens, needle and stamp work) and hops onto the users' porch; more parcels follow. */
-M.captions([
-  'Tänk dig ett <em>utvecklingsteam</em> på ett stort företag',
-  'Varje ändring är ett <em>paket</em> på ett band',
-  '<em>Utvecklare</em> → granskning → test → godkännande → <em>användare</em>',
-]);
+M.captions('Varje ändring är ett <em>paket</em> på ett band');
 const A = M.layer('P03');
 A.belt('belt-rollers', 150);
 A.huts();

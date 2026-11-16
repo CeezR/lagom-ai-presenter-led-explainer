@@ -16,18 +16,31 @@ build a deck they can talk to, get the recording running in the browser, and edi
    This creates `videos/NNN-slug/` with `script.md`, `deck.json`, `scenes/`, `runtime/` and `takes/`.
 3. **Write `script.md`.** One section per slide, in the language the user will speak. It is a listening script: the user
    reads or hears it to prepare, then talks freely on camera. They do not read it aloud. Short sentences, concrete examples.
-4. **Build the deck.** One slide = one entry in `deck.json` (`id`, `title`, 2-4 `points`) + one file `scenes/<id>.html`.
-   Read `reference/deck-format.md` for the page contract and `style/STYLE.md` for the look. The points are the presenter's
-   reminders: each arrow-key press reveals the next point, and the scene shows one handwritten caption per point.
+4. **Build the deck.** One slide = one entry in `deck.json` (`id`, `title`, `notes`) + one file `scenes/<id>.html`.
+   Read `reference/deck-format.md` for the page contract and `style/STYLE.md` for the look. Follow the slide rules below.
    Run `node <skill>/scripts/build.mjs` after changing `deck.json`.
-5. **Review with the user.** Run `node <skill>/scripts/open.mjs`. The user steps through the deck (arrow keys, T = talking
-   points). Iterate until they approve the script and the slides. Do not record before they approve.
+5. **Review with the user.** Run `node <skill>/scripts/open.mjs`. The user steps through the deck with the arrow keys (N = notes
+   window). Iterate until they approve the script and the slides. Do not record before they approve.
 6. **Record.** `node <skill>/scripts/record.mjs` serves the deck on localhost and opens it in Chrome or Edge. In the page: F11 for
-   full screen, **R** starts (3-2-1) and **R** stops, arrow keys step through the points, **N** opens the talking points in a
+   full screen, **R** starts (3-2-1) and **R** stops, arrow keys go to the next slide, **N** opens the speaker notes in a
    separate window that is not recorded. The webcam appears as a bubble in the corner. Takes land in `videos/NNN-slug/takes/`.
    The user presents a few takes. Details: `reference/recording.md`.
 7. **Edit.** `node <skill>/scripts/transcribe.mjs takes/<file>` gives a transcript. Then follow `reference/editing.md`:
    pick the best take, cut mistakes and dead air, add chapters, write the title and description. Keep the original takes.
+
+## Slide rules (the presenter is winging it live)
+
+- **One click per slide.** The next slide is the only reveal. Nothing inside a slide waits for a key press, so the presenter never
+  has to time a click to what they are saying.
+- **One continuous animation per slide.** It starts by itself when the slide appears and builds in roughly 10 seconds (the
+  length is up to the slide). `data-cues` times its internal steps. It then rests in a final state that carries the whole message,
+  so the picture is right whether the presenter talks for 20 seconds or 2 minutes.
+- **Loop or play once.** Prefer a loop (`data-loop`): the build-up fades out and starts over, with ambient motion (belts,
+  engines, spinning parts) running throughout, so nothing pops in and out awkwardly. Play once (no `data-loop`) when the end state
+  is the point and replaying would look wrong, e.g. a part is swapped, a curve is drawn: build once, then only ambient motion.
+- **One idea per slide.** If an idea needs steps the presenter must trigger, split it into two slides.
+- **The slide shows one caption line, not the talking points.** `notes` in `deck.json` are speaker notes for the presenter's eyes
+  only (N = separate window that is not recorded). Never put several talking points on screen.
 
 ## Rules
 

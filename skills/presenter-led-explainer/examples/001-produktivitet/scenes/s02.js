@@ -1,11 +1,6 @@
 /* s02 · Riksbanken (beat 2-4): letters fly from the bank to the towers (point 1), the AI windows light up one tower at a time (point 2),
    the gauges stay low (point 3) and the name of the puzzle is written above the skyline. */
-M.captions([
-  'Riksbanken frågade <em>41</em> av Sveriges största företag',
-  '<em>41</em> av Sveriges största företag intervjuades',
-  'I stort sett <em>alla</em> använder AI',
-  'Men effekten är än så länge <em>liten</em>',
-]);
+M.captions('Riksbanken frågade <em>41</em> av Sveriges största företag');
 const A = M.layer('P02');
 const towers = [1, 2, 4, 5];
 towers.forEach((n, i) => A.robot(`tower-${n}-`, i * .23));

@@ -8,8 +8,9 @@ In the deck page:
 - **R** start. The browser asks for camera and microphone, shows your webcam bubble in the corner, then asks to share
   this tab (choose "This tab"). After a 3-2-1 countdown it records the slides plus the bubble, with your microphone.
 - **R** again stops. The page confirms "Saved takes/take-YYYYMMDD-HHMMSS.webm". Chrome's own "Stop sharing" button also stops.
-- **Arrow keys** step through the points. **N** opens the talking points in a separate window (only the tab is recorded,
-  so that window never appears in the video; put it on a second monitor). **T** shows them on the slide (that is recorded).
+- **Arrow keys** go to the next or previous slide; each slide plays its animation by itself. **N** opens your speaker notes in a
+  separate window (only the tab is recorded, so that window never appears in the video; put it on a second monitor).
+  **T** shows them on the slide (that is recorded).
 - Bubble position and size: add to the address, e.g. `?cam=bl` (bl, br, tl, tr) and `&size=22` (% of the page width).
 
 Video is written to disk once a second, so a crash loses at most a second. Output is WebM (VP9 + Opus, 30 fps).

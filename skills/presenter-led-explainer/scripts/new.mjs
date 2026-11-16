@@ -19,7 +19,7 @@ const n = readdirSync(root).filter(d => /^\d{3}-/.test(d)).length + 1;
 const dir = join(root, `${String(n).padStart(3, '0')}-${slug}`);
 if (existsSync(dir)) { console.error(dir, 'already exists'); process.exit(1); }
 
-const slides = [{ id: 's01', title: 'Opening', points: ['The question this video answers.', 'Why it matters.'] }];
+const slides = [{ id: 's01', title: 'Opening', notes: ['The question this video answers.', 'Why it matters.'] }];
 mkdirSync(join(dir, 'scenes'), { recursive: true });
 mkdirSync(join(dir, 'takes'));
 writeFileSync(join(dir, 'takes', '.gitkeep'), '');
@@ -28,7 +28,6 @@ writeFileSync(join(dir, 'deck.json'), JSON.stringify({ title, lang, slides }, nu
 writeFileSync(join(dir, 'script.md'), `# ${title}\n\n- **Question:** \n- **One core idea:** \n- **Audience:** \n\n## Slide 1: Opening\nWhat you say, in your own words.\n`);
 const tpl = readFileSync(join(skillDir, 'templates', 'scene.html'), 'utf8');
 for (const s of slides) writeFileSync(join(dir, 'scenes', `${s.id}.html`), tpl
-  .replaceAll('{{id}}', s.id).replaceAll('{{title}}', s.title).replaceAll('{{lang}}', lang).replaceAll('{{steps}}', s.points.length)
-  .replace('{{captions}}', s.points.map(p => `  ${JSON.stringify(p)},`).join('\n')));
+  .replaceAll('{{id}}', s.id).replaceAll('{{title}}', s.title).replaceAll('{{lang}}', lang).replace('{{caption}}', JSON.stringify(s.title)));
 build(dir);
 console.log(`created ${dir}\nNext: write script.md, edit deck.json + scenes/, then "open" to preview and "record" to film.`);

@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /* Build a video's deck: deck.json + scenes/<id>.html -> index.html (the Reveal.js shell).
-   Why: each slide is its own HTML page (scenes/), shown in an iframe; one invisible fragment per talking point makes the
-   arrow key step through the points while the scene page animates. Keys in the deck: T = talking points on the slide, N = talking points in a separate window (not recorded), R = record.
+   Why: each slide is its own HTML page (scenes/), shown in an iframe, and plays one continuous animation by itself.
+   One key press = the next slide; nothing inside a slide needs a click. The talking points are speaker notes only.
+   Keys in the deck: N = notes in a separate window (not recorded), T = notes on the slide, R = record.
    Run: node build.mjs [videos/001-slug] */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -9,13 +10,13 @@ import { videoDir } from './lib.mjs';
 
 const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
-/** The Reveal shell page for a deck. */
+/** The speaker notes of a slide (deck.json "notes"; "points" is the old name). */
+const notesOf = s => s.notes ?? s.points ?? [];
+
+/** The Reveal shell page for a deck: one slide = one scene page in an iframe = one click. No fragments inside a slide. */
 export function deckPage(deck) {
-  const secs = deck.slides.map(s => {
-    const frags = s.points.map((_, j) => `<span class="fragment" data-fragment-index="${j}"></span>`).join('');
-    return `<section data-scene="scenes/${s.id}.html"><iframe tabindex="-1"></iframe>${frags}</section>`;
-  }).join('\n');
-  const points = deck.slides.map(s => [s.title, ...s.points]);
+  const secs = deck.slides.map(s => `<section data-scene="scenes/${s.id}.html"><iframe tabindex="-1"></iframe></section>`).join('\n');
+  const notes = deck.slides.map(s => [s.title, ...notesOf(s)]);
   return `<!doctype html>
 <html lang="${deck.lang ?? 'en'}"><head><meta charset="utf-8">
 <title>${esc(deck.title)}</title>
@@ -25,9 +26,8 @@ export function deckPage(deck) {
 html,body{background:#fff}
 .reveal .slides section{padding:0;height:100%;width:100%;text-align:left}
 .reveal iframe{position:absolute;inset:0;width:1920px;height:1080px;border:0;pointer-events:none;background:#fff}
-.reveal .fragment{display:none}
 #pts{display:none;position:fixed;left:16px;bottom:16px;max-width:42vw;background:rgba(42,36,32,.92);color:#fff;font:600 20px/1.35 Kalam,cursive,sans-serif;padding:14px 18px;border-radius:12px;z-index:9}
-#pts b{color:#F07A1A} #pts div{opacity:.35} #pts div.on{opacity:1}
+#pts b{color:#F07A1A} #pts div{margin-top:6px}
 </style></head>
 <body>
 <div class="reveal"><div class="slides">
@@ -36,29 +36,29 @@ ${secs}
 <div id="pts"></div>
 <script src="runtime/vendor/dist/reveal.js"></script>
 <script>
-const POINTS = ${JSON.stringify(points)};
-Reveal.initialize({width:1920,height:1080,margin:0,hash:true,controls:false,progress:false,transition:'fade',slideNumber:false,fragments:true});
-const frame = s => s && s.querySelector('iframe');
-const shown = s => s.querySelectorAll('.fragment.visible').length;
+const NOTES = ${JSON.stringify(notes)};
+Reveal.initialize({width:1920,height:1080,margin:0,hash:true,controls:false,progress:false,transition:'fade',slideNumber:false,fragments:false});
 const all = () => [...document.querySelectorAll('.slides > section')];
-function load(s) { const f = frame(s); if (f && !f.src.includes('scenes/')) f.src = s.dataset.scene; return f; }
-function enter(s) {
-  const f = load(s); if (!f) return;
-  const send = () => f.contentWindow.postMessage({type: 'enter', step: shown(s)}, '*');
-  if (f.dataset.ready) send(); else f.addEventListener('load', () => { f.dataset.ready = 1; send(); }, {once: true});
+const frame = s => s && s.querySelector('iframe');
+function load(s) { const f = frame(s); if (f && !f.src.includes('scenes/')) { f.addEventListener('load', () => { f.dataset.ready = 1; }); f.src = s.dataset.scene; } return f; }
+const tell = (f, type) => f && f.contentWindow && f.contentWindow.postMessage({type}, '*');
+// the shown slide starts its animation; every other slide is paused
+function enter(cur) {
+  all().forEach(s => { const f = frame(s); if (s !== cur && f && f.dataset.ready) tell(f, 'leave'); });
+  const f = load(cur); if (!f) return;
+  if (f.dataset.ready) tell(f, 'enter'); else f.addEventListener('load', () => tell(f, 'enter'), {once: true});
 }
 function near() { const a = all(), i = a.indexOf(Reveal.getCurrentSlide()); [a[i], a[i + 1]].forEach(s => s && load(s)); }
+// speaker notes: key N = separate window (not recorded), key T = on the slide
 let popup = null;
-function notes() { const s = Reveal.getCurrentSlide(), i = all().indexOf(s), n = shown(s);
-  const html = POINTS[i].map((t, j) => j === 0 ? '<b>' + t + '</b>' : '<div class="' + (j <= n ? 'on' : '') + '">' + j + '. ' + t + '</div>').join('');
+function notes() { const i = all().indexOf(Reveal.getCurrentSlide());
+  const html = NOTES[i].map((t, j) => j === 0 ? '<b>' + t + '</b>' : '<div>' + j + '. ' + t + '</div>').join('');
   document.getElementById('pts').innerHTML = html;
   if (popup && !popup.closed) popup.document.body.innerHTML = html; }
 function openNotes() { popup = window.open('', 'notes', 'width=560,height=640'); if (!popup) return;
-  popup.document.title = 'Notes'; popup.document.head.innerHTML = '<style>body{font:600 28px/1.4 Kalam,"Comic Sans MS",cursive;background:#2A2420;color:#fff;padding:20px}b{color:#F07A1A;font-size:34px}div{opacity:.35;margin-top:14px}div.on{opacity:1}</style>'; notes(); }
+  popup.document.title = 'Notes'; popup.document.head.innerHTML = '<style>body{font:600 28px/1.4 Kalam,"Comic Sans MS",cursive;background:#2A2420;color:#fff;padding:20px}b{color:#F07A1A;font-size:34px}div{margin-top:14px}</style>'; notes(); }
 Reveal.on('ready', e => { near(); enter(e.currentSlide); notes(); });
 Reveal.on('slidechanged', e => { near(); enter(e.currentSlide); notes(); });
-const sync = () => { const s = Reveal.getCurrentSlide(), f = frame(s); if (f && f.contentWindow) f.contentWindow.postMessage({type: 'step', step: shown(s)}, '*'); notes(); };
-Reveal.on('fragmentshown', sync); Reveal.on('fragmenthidden', sync);
 addEventListener('keydown', e => { if (e.key === 'n' || e.key === 'N') { e.preventDefault(); e.stopPropagation(); openNotes(); }
   if (e.key === 't' || e.key === 'T') { const p = document.getElementById('pts'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } }, true);
 </script>

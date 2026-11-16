@@ -1,11 +1,6 @@
 /* s13 · Tillbaka till teamet (beat 48-51). Point 1: the team has its motor, everything runs fast and parcels drop in with a bounce.
    Point 2: the old shaft in the roof shows again, the belt is still built for the old speed. Point 3: one parcel reaches the users. */
-M.captions([
-  'Tillbaka till teamet. Paketen går <em>fortare än någonsin</em>',
-  'Teamet har fått sin <em>elmotor</em>',
-  'Men bandet är byggt för den <em>gamla farten</em>. Precis som axeln i taket',
-  'Det som räknas är inte hur fort ett steg går. Det är vad som <em>kommer fram</em>',
-]);
+M.captions('Det som räknas är vad som <em>kommer fram</em>');
 const A = M.layer('P15');
 A.belt('belt-rollers', 70);
 A.huts(2.2);

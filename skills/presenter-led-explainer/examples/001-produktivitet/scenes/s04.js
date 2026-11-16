@@ -1,10 +1,6 @@
 /* s04 · AI-kollegan (beat 8-10). Frame 1: the developers get an AI colleague, the keyboard glows and parcels leave the screen faster and
    faster. Frame 2 (point 2): the belt fills up and the parcels queue in front of review; at the users' porch they still arrive one by one. */
-M.captions([
-  'Nu får utvecklarna en <em>AI-kollega</em>',
-  'Paketen <em>flyger iväg</em>. Fler än någonsin',
-  'Men hos användarna? Lika lång <em>väntan</em> som förut',
-]);
+M.captions('Nu får utvecklarna en <em>AI-kollega</em>');
 const A = M.layer('P04-start');
 A.desk();
 A.flow('ai-cable', 70);

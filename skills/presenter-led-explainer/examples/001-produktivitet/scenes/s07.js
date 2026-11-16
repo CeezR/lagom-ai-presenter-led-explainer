@@ -1,11 +1,6 @@
 /* s07 · Elmotorn i den gamla fabriken (beat 21-25). Point 1: the steam engine is rolled out and a big electric motor is lowered in.
    Point 2: one machine has to move, so the whole factory stops: same shafts, same belts, no lift. Point 3: the adoption meter slowly fills. */
-M.captions([
-  'Så vad gjorde man med elen?',
-  'Man bytte ångmaskinen mot en stor <em>elmotor</em>',
-  'Men axeln satt kvar. Remmarna satt kvar. Huset var detsamma: <em>inget lyft</em>',
-  '1899: under <em>5 %</em>. Tjugo år senare: ungefär <em>hälften</em>',
-]);
+M.captions('Elmotor i stället för ångmaskin: <em>inget lyft</em>');
 const A = M.layer('P08');
 // when point 2 is said the factory stops for a moment (one machine moved, everything waits); the clock simply stops counting
 let t2 = null;

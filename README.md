@@ -4,7 +4,7 @@ An AI agent skill for making **presenter-led explainer videos**: you talk to a R
 voice and the slides. No recording software to install. The AI helps with the idea, the script, the slides and the edit. You are always the voice.
 
 ```
-idea  ->  script.md + deck  ->  you approve  ->  record in the browser (a few takes)  ->  AI edits
+idea  ->  script.md + deck (one self-playing animation per slide, speaker notes for you)  ->  you approve  ->  record in the browser (a few takes)  ->  AI edits
 ```
 
 ## Install
@@ -31,7 +31,7 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 |---|---|
 | `new <slug>` | Scaffold `videos/NNN-slug/`: `script.md`, `deck.json`, `scenes/`, `runtime/`, `takes/` |
 | `build [video]` | Rebuild `index.html` from `deck.json` |
-| `open [video]` | Open the deck in your browser without recording (arrow keys step, **T** shows the talking points) |
+| `open [video]` | Open the deck in your browser without recording (arrow keys = next slide, **N** speaker notes in a separate window) |
 | `record [video]` | Serve the deck on localhost and open it in Chrome/Edge. **R** start/stop recording, **N** notes window, F11 full screen. Takes are saved in `takes/` |
 | `transcribe <take>` | Whisper transcript, the basis for AI editing |
 

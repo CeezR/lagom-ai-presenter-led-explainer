@@ -1,11 +1,6 @@
 /* s10 · Kontoren byggs om (beat 36-38). Point 1: the gauge climbs. Point 2: the Brynjolfsson & Hitt board and its flow chart appear.
    Point 3: the extra desks and shelves fade out (dashed ghosts), a decision desk moves in next to the work, and a sheet runs straight through. */
-M.captions([
-  'Kontoren på <em>90-talet</em>',
-  'I slutet av 90-talet tog produktiviteten i USA äntligen <em>fart</em>',
-  'Lyftet kom hos de företag som <em>byggde om arbetet</em> runt datorerna',
-  'Färre mellansteg. Beslut närmare jobbet. Information som gick <em>direkt</em>, inte via pärmar',
-]);
+M.captions('Lyftet kom hos de som <em>byggde om arbetet</em>');
 const A = M.layer('P12');
 office(A, [1]);
 A.track('gauge-needle', () => { const a = M.since(1); return { r: -105 * (1 - M.ease(a < 0 ? 0 : a / 3)) }; });

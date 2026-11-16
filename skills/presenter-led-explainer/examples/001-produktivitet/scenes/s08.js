@@ -1,11 +1,6 @@
 /* s08 · Den nya fabriken (beat 26-30). Point 1: motors hop out of the box into every machine. Point 2: the one-floor hall, daylight from the
    roof, machines in the order of the work; parcels flow through them. Point 3: the ruler "40 år" grows and the gauge climbs. */
-M.captions([
-  'Lyftet kom med ett nytt sätt att tänka',
-  'En liten <em>motor</em> i varje maskin',
-  'Ingen axel. Fabriken i <em>ett plan</em>, maskinerna i den ordning arbetet flödar',
-  'Det var inte elmotorn som gav lyftet. Det var den <em>nya fabriken</em>',
-]);
+M.captions('Inte motorn gav lyftet. Det var den <em>nya fabriken</em>');
 const A = M.layer('P09-start');
 A.spin('electric-motor-pulley', 300);
 A.flow('floors-slide-path', 40, '16 12');

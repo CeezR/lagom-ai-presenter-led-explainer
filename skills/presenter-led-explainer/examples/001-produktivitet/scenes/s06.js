@@ -1,11 +1,6 @@
 /* s06 · Ångfabriken (beat 17-20): one steam engine turns the shaft in the ceiling, belts carry the power to every machine on four floors.
    Point 1: Paul David's plaque and the year, the electric motor rolls in on its cart. Point 2: power runs along every shaft. Point 3: the floors rise. */
-M.captions([
-  'Vi har varit här förut',
-  '<em>Elen</em> kommer till fabrikerna, runt <em>år 1900</em>',
-  'En <em>ångmaskin</em>, en axel i taket, läderremmar ner till varje maskin',
-  'Allt måste stå nära axeln: därför byggdes fabrikerna på <em>höjden</em>',
-]);
+M.captions('Vi har varit här förut: <em>elen</em> kommer, runt <em>år 1900</em>');
 const A = M.layer('P07');
 A.smoke('chimney-smoke', 3.4, 30);
 ['flywheel', 'drive-pulley', 'crank'].forEach(id => A.spin(id, 140));

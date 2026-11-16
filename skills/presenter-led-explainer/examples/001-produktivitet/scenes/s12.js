@@ -1,13 +1,7 @@
 /* s12 · J-kurvan: uppförsbacken (beat 43-47). Point 1: the hidden work under the curve (books, hammer, new workflow). Point 2: the curve turns and
    climbs steeply, the pencil draws it and trees grow along it. Point 3: cost shows first, benefit later. Point 4: electricity and the
    computer went through it, now AI stands at the start. */
-M.captions([
-  'Tid och pengar går till sådant som <em>inte syns i siffrorna</em>',
-  'Att <em>lära om</em>. Att <em>bygga om</em>. Nya arbetssätt',
-  'Sedan vänder kurvan och stiger <em>brant</em>. Den liknar bokstaven <em>J</em>',
-  'I början visar siffrorna <em>kostnaden</em>, men ännu inte nyttan',
-  'Elen gick genom den. Datorerna gick genom den. Nu står <em>AI</em> i början av den',
-]);
+M.captions('Först syns <em>kostnaden</em>, nyttan kommer efter. En <em>J-kurva</em>');
 const A = M.layer('P14');
 A.popAt('step-07-hidden-work', 1);
 A.track('hidden-hammer', t => ({ r: M.since(1) < 0 ? 0 : 22 * Math.abs(M.wave(t, .7)) - 8 }));

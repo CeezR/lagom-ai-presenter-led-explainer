@@ -1,12 +1,14 @@
 /* Motion engine for one reveal scene (one HTML file = one scene).
    Why it exists: the place SVGs are static drawings. This moves their parts (spin, bob, slide, draw-on) by id,
-   keeps each part's own transform (STYLE.md: append, never replace) and follows the talking points ("steps"):
-   step 0 = nothing said yet, step n = n points shown. The parent deck sends steps with postMessage.
+   keeps each part's own transform (STYLE.md: append, never replace) and plays ONE continuous animation per slide:
+   when the slide appears it runs by itself. data-cues='[0.3, 4, 8]' = the seconds at which "steps" 1, 2, 3 start (M.since(n) counts
+   from there), data-loop="20" = restart after 20 s with a quick fade (leave it out to play once and then rest in the end state).
+   The presenter never clicks inside a slide; the parent deck only says "enter" (start) and "leave" (pause) with postMessage.
 
    A scene script does:  const A = M.layer('P03');  A.track('belt-rollers', (t, step) => ({x: ...}));  */
 const M = (() => {
   const layers = [];
-  const state = { step: 0, layer: 0, stepAt: { 0: 0 }, switch: [0], running: false };
+  const state = { step: 0, layer: 0, stepAt: { 0: 0 }, switch: [0], cues: [], loop: 0, runAt: 0, fadeAt: 0, running: false };
   const now = () => performance.now() / 1000;
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, k) => a + (b - a) * k;
@@ -17,7 +19,7 @@ const M = (() => {
   const pop = a => a < 0 ? { o: 0, s: .001 } : { o: Math.min(1, a * 5), s: Math.max(.001, back(a / .55)) };
   const num = s => s.split(/[ ,]+/).map(Number);
 
-  /** Seconds since talking point n was shown (-1 while it is not shown). */
+  /** Seconds since step n started (-1 while it has not started). Steps are timed cues, not clicks. */
   const since = n => (state.step >= n && state.stepAt[n] !== undefined) ? now() - state.stepAt[n] : -1;
 
   /** Reveal a path (or every path inside a group) as if drawn: p 0..1. */
@@ -81,7 +83,7 @@ const M = (() => {
     return out;
   }
 
-  /** The handwritten line on the slide: one per step (index = how many talking points have been said). */
+  /** The handwritten line on the slide (usually just one; a list gives one per step). */
   function caption(n) {
     const el = document.getElementById('cap'); if (!el) return;
     const text = state.captions[Math.min(n, state.captions.length - 1)];
@@ -210,6 +212,7 @@ const M = (() => {
   }
 
   function tick() {
+    advance();
     const T = now();
     for (const L of layers) if (L.index === state.layer || L.fading) apply(L, T - L.t0);
     if (state.running) requestAnimationFrame(tick);
@@ -226,16 +229,28 @@ const M = (() => {
     state.layer = i;
   }
 
-  /** Talking point n has been said: update the strip and maybe switch to the next place frame. */
-  function setStep(n, restart) {
-    n = clamp(n, 0, +(document.body.dataset.steps || 0));
-    if (restart) state.stepAt = { 0: now() };
-    for (let s = (restart ? 1 : state.step + 1); s <= n; s++) state.stepAt[s] = now();
-    for (const s of Object.keys(state.stepAt)) if (+s > n) delete state.stepAt[s];
-    state.step = n;
-    if (state.captions) caption(n);
-    let k = 0; state.switch.forEach((from, idx) => { if (n >= from) k = idx; });
-    if (k !== state.layer || restart) showLayer(k, restart);
+  /** Move the animation on: start the steps whose cue time has come, switch the place frame, and handle the loop. */
+  function advance() {
+    const el = now() - state.runAt, c = state.cues;
+    let n = 0; while (n < c.length && c[n] <= el) n++;
+    if (n > state.step) {
+      for (let k = state.step + 1; k <= n; k++) state.stepAt[k] = state.runAt + c[k - 1];
+      state.step = n;
+      if (state.captions) caption(n);
+      let k = 0; state.switch.forEach((from, idx) => { if (n >= from) k = idx; });
+      if (k !== state.layer) { showLayer(k, true); layers[k].t0 = state.runAt + (state.switch[k] > 0 ? c[state.switch[k] - 1] : 0); }
+    }
+    const f = document.getElementById('frame');
+    if (state.loop && el >= state.loop && !state.fadeAt) { state.fadeAt = now(); if (f) f.style.opacity = 0; }      // fade out, then start over
+    if (state.fadeAt && now() - state.fadeAt > .7) { run(0); if (f) f.style.opacity = 1; }
+  }
+
+  /** (Re)start the slide's animation from the beginning (or `offset` seconds in: ?at=8 while checking a slide). */
+  function run(offset = 0) {
+    state.runAt = now() - offset; state.fadeAt = 0; state.step = 0; state.stepAt = { 0: state.runAt };
+    showLayer(0, true);
+    layers.forEach(L => { L.t0 = state.runAt; });
+    if (state.captions) caption(0);
   }
 
   function fit() {
@@ -247,24 +262,22 @@ const M = (() => {
   }
 
   function start() {
-    state.switch = JSON.parse(document.body.dataset.switch || '[0]');
-    const q = new URLSearchParams(location.search);
+    const b = document.body.dataset;
+    state.switch = JSON.parse(b.switch || '[0]'); state.cues = JSON.parse(b.cues || '[]'); state.loop = +(b.loop || 0);
+    const q = new URLSearchParams(location.search), inDeck = window.parent !== window;
     fit(); addEventListener('resize', fit);
-    state.running = true;
-    setStep(+(q.get('step') || 0), true);
-    requestAnimationFrame(tick);
-    // the deck (parent window) drives steps; standalone, the arrow keys do
+    run(+(q.get('at') || 0));
+    const go = () => { if (!state.running) { state.running = true; requestAnimationFrame(tick); } };
+    if (inDeck) { state.running = true; tick(); state.running = false; } else go();   // in the deck: paint the first picture, then wait for "enter"
+    // the deck (parent window) says when the slide is shown and when it is left; standalone the scene just plays (Enter = replay)
     addEventListener('message', e => {
       const d = e.data || {};
-      if (d.type === 'enter') setStep(d.step || 0, true);
-      if (d.type === 'step') setStep(d.step);
+      if (d.type === 'enter') { run(0); go(); }
+      if (d.type === 'leave') state.running = false;
     });
-    addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.key === ' ') setStep(state.step + 1);
-      if (e.key === 'ArrowLeft') setStep(state.step - 1);
-    });
+    addEventListener('keydown', e => { if (e.key === 'Enter') { run(0); go(); } });
   }
 
-  return { cam: (a, b, k) => ({ cx: lerp(a.cx, b.cx, k), w: lerp(a.w, b.w, k), fy: lerp(a.fy ?? 790, b.fy ?? 790, k) }), layer, start, since, setStep, draw, pop, journey, dur, sprites, bounce, easeIn, easeOut,
-    captions: list => { state.captions = list; }, clamp, lerp, ease, back, wave, loop, state, now };
+  return { cam: (a, b, k) => ({ cx: lerp(a.cx, b.cx, k), w: lerp(a.w, b.w, k), fy: lerp(a.fy ?? 790, b.fy ?? 790, k) }), layer, start, since, run, draw, pop, journey, dur, sprites, bounce, easeIn, easeOut,
+    captions: list => { state.captions = [].concat(list); }, clamp, lerp, ease, back, wave, loop, state, now };
 })();
