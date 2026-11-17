@@ -2,7 +2,7 @@
 
 - **Fråga:** Om alla blir snabbare med AI, varför syns det inte i siffrorna?
 - **En kärnidé:** ett snabbare steg ger inte snabbare arbete. Lyftet kommer när arbetet byggs om runt den nya tekniken.
-- **Begrepp som sägs:** produktivitetsparadoxen, Theory of Constraints, dynamon och datorn (Paul David), Solow, produktivitetens J-kurva.
+- **Begrepp som sägs:** produktivitetsparadoxen, teorin om begränsningar, dynamon och datorn (Paul David), Solow, produktivitetens J-kurva.
 - **Struket sedan v4:** Amdahl, Little, suboptimering, Goodhart, Parkinson, Jevons, snabbare hästar.
 - **Röd tråd:** ett utvecklingsteam på ett stort företag (påhittat, ingen bransch, inga siffror).
 - Problemet definieras, ingen lösning föreskrivs. Ingen uppmaning.
@@ -82,7 +82,7 @@ Paketen flyger iväg. Fler än någonsin.
 
 Men hos användarna? Lika lång väntan som förut.
 
-*8 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
+*8 ord* · **Scen:** S05 · Källa: Påhittat exempel, inga siffror.
 
 # Akt 3 · Flaskhalsen
 
@@ -100,7 +100,7 @@ Ett flöde går aldrig fortare än sitt långsammaste steg.
 
 ## 13
 
-Det kallas Theory of Constraints. Från Eliyahu Goldratts bok The Goal, 1984.
+Det kallas teorin om begränsningar. Från Eliyahu Goldratts bok Målet, 1984.
 
 *12 ord* · **Scen:** S05 · Källa: Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
 

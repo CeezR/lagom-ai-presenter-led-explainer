@@ -1,6 +1,23 @@
-/* s05 · Flaskhalsen (beat 11-14). Point 1: parcels leave the stations and land on three growing piles in front of review, test and approval.
+/* s05 · Flaskhalsen (beat 11-14). First the belt from the AI-colleague story (moved here from s04): parcels queue in front of review while they
+   still arrive one by one at the users' porch. Point 1 (switch to the piles): parcels leave the stations and land on three growing piles in front of review, test and approval.
    Point 2 outlines the bottleneck, point 3 raises the book (Goldratt, The Goal). */
 M.captions('Ett flöde går aldrig fortare än sitt <em>långsammaste steg</em>');
+const B = M.layer('P04');
+B.belt('belt-rollers', 200);
+B.huts(1.4);
+B.el('lectern').style.display = 'none';
+['stream-0', 'stream-1', 'stream-2', 'stream-3', 'stream-4', 'parcel-hero'].forEach(id => B.el(id).style.display = 'none');
+const Q = queue({ n: 12, every: .45, gateX: 2840, gap: 84, service: 2.4, room: 5, v: 200 });
+const qs = M.sprites(B, 'stream-0', 12, { scale: .95 });
+B.frame(t => qs.forEach((p, i) => p.show(Q.at(i, t))));
+[0, 1, 2].forEach(i => B.track(`cal-page-${i}`, t => {
+  const k = M.loop(t * .3 + i / 3, 1);
+  return { y: 90 * k, x: 24 * Math.sin(k * 5), r: 40 * k, o: Math.min(1, k * 8, (1 - k) * 3) };
+}));
+
+// the camera slowly pans between the queue in front of review (left) and the porch where parcels arrive one by one (right)
+B.camera(t => ({ cx: 3150 - 430 * Math.cos(t * 2 * Math.PI / 18), w: 1600 }));
+
 const A = M.layer('P05');
 A.belt('belt-rollers', 260);
 A.huts(1.3);

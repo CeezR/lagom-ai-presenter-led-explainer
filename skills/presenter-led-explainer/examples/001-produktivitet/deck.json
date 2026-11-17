@@ -52,17 +52,18 @@
       "id": "s04",
       "title": "AI-kollegan",
       "notes": [
-        "Utvecklarna får AI, paketen flyger iväg.",
-        "Men användarna väntar lika länge."
+        "Utvecklarna får en AI-kollega.",
+        "Paketen flyger iväg från skärmen, snabbare och snabbare."
       ]
     },
     {
       "id": "s05",
       "title": "Flaskhalsen",
       "notes": [
+        "Paketen hinner iväg, men användarna väntar lika länge.",
         "Kö framför granskning, test, godkännande.",
         "Flödet går aldrig fortare än sitt långsammaste steg.",
-        "Theory of Constraints, Goldratt, The Goal (1984)."
+        "Teorin om begränsningar, Goldratt, Målet (1984)."
       ]
     },
     {

@@ -12,6 +12,7 @@ In the deck page:
   separate window (only the tab is recorded, so that window never appears in the video; put it on a second monitor).
   **T** shows them on the slide (that is recorded).
 - Bubble position and size: add to the address, e.g. `?cam=bl` (bl, br, tl, tr) and `&size=22` (% of the page width).
+- On a screen wider than 16:9 the slides are pinned to the left edge, so the free strip on the right is where the bubble sits and it stays off the picture. Add `&align=center` to centre the slides instead.
 
 Video is written to disk once a second, so a crash loses at most a second. Output is WebM (VP9 + Opus, 30 fps).
 Nothing leaves the machine. If the browser blocks camera, microphone or screen capture (some company policies do),

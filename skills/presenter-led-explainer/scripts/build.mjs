@@ -38,6 +38,12 @@ ${secs}
 <script>
 const NOTES = ${JSON.stringify(notes)};
 Reveal.initialize({width:1920,height:1080,margin:0,hash:true,controls:false,progress:false,transition:'fade',slideNumber:false,fragments:false});
+// on a wide screen the 16:9 stage is pinned to the left edge, so the free strip on the right is where the webcam bubble sits and the
+// presenter's face never covers the picture. ?align=center brings Reveal's centred layout back. Reveal re-centres on every layout, so redo it after each.
+const pinLeft = () => { if (new URLSearchParams(location.search).get('align') === 'center') return;
+  const sl = document.querySelector('.reveal .slides'); if (!sl) return;
+  const t = 'translate(0px, -50%) scale(' + Reveal.getScale() + ')';
+  if (sl.style.transform !== t || sl.style.left !== '0px') { sl.style.left = '0px'; sl.style.transformOrigin = '0 50%'; sl.style.transform = t; } };
 const all = () => [...document.querySelectorAll('.slides > section')];
 const frame = s => s && s.querySelector('iframe');
 function load(s) { const f = frame(s); if (f && !f.src.includes('scenes/')) { f.addEventListener('load', () => { f.dataset.ready = 1; }); f.src = s.dataset.scene; } return f; }
@@ -57,7 +63,9 @@ function notes() { const i = all().indexOf(Reveal.getCurrentSlide());
   if (popup && !popup.closed) popup.document.body.innerHTML = html; }
 function openNotes() { popup = window.open('', 'notes', 'width=560,height=640'); if (!popup) return;
   popup.document.title = 'Notes'; popup.document.head.innerHTML = '<style>body{font:600 28px/1.4 Kalam,"Comic Sans MS",cursive;background:#2A2420;color:#fff;padding:20px}b{color:#F07A1A;font-size:34px}div{margin-top:14px}</style>'; notes(); }
-Reveal.on('ready', e => { near(); enter(e.currentSlide); notes(); });
+Reveal.on('ready', e => { pinLeft(); near(); enter(e.currentSlide); notes(); });
+Reveal.on('resize', pinLeft);
+new MutationObserver(pinLeft).observe(document.querySelector('.reveal .slides'), {attributes: true, attributeFilter: ['style']});
 Reveal.on('slidechanged', e => { near(); enter(e.currentSlide); notes(); });
 addEventListener('keydown', e => { if (e.key === 'n' || e.key === 'N') { e.preventDefault(); e.stopPropagation(); openNotes(); }
   if (e.key === 't' || e.key === 'T') { const p = document.getElementById('pts'); p.style.display = p.style.display === 'block' ? 'none' : 'block'; } }, true);
