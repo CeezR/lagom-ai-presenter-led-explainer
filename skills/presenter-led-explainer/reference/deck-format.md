@@ -37,4 +37,4 @@ Copy `templates/scene.html`. The contract:
 - Everything is a function of time, so a loop restart or a replay is always clean. Keep ambient motion running after the build.
 - Add motion only where it explains something. A still drawing with a caption is a fine slide.
 
-`examples/001-produktivitet/` is a finished 15-slide deck (hook, intro, 12 slides, outro) (Swedish) using all of this; read its `scenes/s03.js` and `s05.js`.
+`examples/001-produktivitet/` is a finished 14-slide deck (hook, intro, 11 slides, outro) (Swedish) using all of this; read its `scenes/s03.js` and `s05.js`.

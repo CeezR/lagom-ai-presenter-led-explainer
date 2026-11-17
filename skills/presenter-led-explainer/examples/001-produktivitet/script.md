@@ -302,35 +302,9 @@ Elen gick genom den. Datorerna gick genom den. Och nu står AI i början av den.
 
 *16 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (artikeln nämner AI som GPT). 'AI i början av kurvan' är vår tolkning, ingen prognos.
 
-# Akt 7 · Tillbaka till teamet
-
-## 48
-
-Tillbaka till teamet. Paketen går fortare än någonsin.
-
-*8 ord* · **Scen:** S15 · Källa: Påhittat exempel, inga siffror.
-
-## 49
-
-Teamet har fått sin elmotor.
-
-*5 ord* · **Scen:** S15 · Källa: Vår tolkning. Återkoppling till akt 4.
-
-## 50
-
-Men bandet är byggt för den gamla farten. Precis som axeln i taket.
-
-*13 ord* · **Scen:** S15 · Källa: Vår tolkning. Ingen instruktion.
-
-## 51
-
-Det som räknas är inte hur fort ett steg går. Det är vad som kommer fram.
-
-*16 ord* · **Scen:** S15 · Källa: Slutrepliken (oförändrad sedan v3).
-
 ## Outro (UTKAST)
 
-Utkast. Talas fritt, ca 15 s. **Scen:** outro (bandet går lugnt, paketen kommer fram, "Lagom AI" skrivs ovanför).
+Utkast. Talas fritt, ca 15 s. **Scen:** outro (foto, "Lagom" och "Vi ses i nästa video!").
 
 - Ett snabbare steg ger inte snabbare arbete. Lyftet kommer när arbetet byggs om runt AI.
 - Jag heter César, och det här var Lagom AI. Vi ses i nästa video.
