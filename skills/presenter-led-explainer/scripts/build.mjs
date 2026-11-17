@@ -67,7 +67,7 @@ addEventListener('keydown', e => { if (e.key === 'n' || e.key === 'N') { e.preve
 }
 
 /** The robot mascot (front view) from style/robot/robot.svg as one group, at the origin, with a marker in its right hand. */
-export function robotGroup(scale = 1.5) {
+export function robotGroup(scale = 1.8) {
   const svg = readFileSync(join(skillDir, 'style', 'robot', 'robot.svg'), 'utf8');
   const a = svg.indexOf('<g id="robot"'), b = svg.indexOf('<g id="robot-q"');
   const marker = '<g id="robot-marker" transform="rotate(-20)"><path d="M-8 -34L8 -34L8 30L0 48L-8 30Z" fill="#FFFFFF" stroke="#2A2420" stroke-width="4" stroke-linejoin="round"/>'
@@ -80,11 +80,15 @@ export function robotGroup(scale = 1.5) {
 /** Slides with "template": "intro" | "outro" get their scene page from templates/<name>.html, filled from deck.json "presenter"
     (name, brand, tagline) and the slide (caption, title). Rebuilt on every build, so the settings stay in one place. */
 export function renderTemplate(dir, deck, s) {
-  const p = { name: 'Your Name', brand: 'Your Brand', tagline: '', ...deck.presenter };
+  const p = { name: 'Your Name', brand: 'Your Brand', tagline: '', signoff: '', photo: '', ...deck.presenter };
+  p.wordmark ??= p.brand;   // the big written word; defaults to the brand
+  // photo (a file in the video folder, ideally square): a round portrait on the left with the name under it; without one the name sits under the tagline
+  const photoBlock = p.photo ? `<g id="brand-photo" opacity="0"><clipPath id="photo-clip"><circle cx="535" cy="470" r="150"/></clipPath><image href="../${esc(p.photo)}" x="385" y="320" width="300" height="300" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)"/><circle cx="535" cy="470" r="156" fill="none" stroke="#F07A1A" stroke-width="10"/></g>` : '';
   const caption = s.caption ?? esc([p.name, p.brand].filter(Boolean).join(' · '));   // s.caption may use <em> like any caption
   const html = readFileSync(join(skillDir, 'templates', `${s.template}.html`), 'utf8')
     .replaceAll('{{id}}', s.id).replaceAll('{{lang}}', deck.lang ?? 'en').replaceAll('{{title}}', esc(s.title ?? s.id))
-    .replaceAll('{{name}}', esc(p.name)).replaceAll('{{brand}}', esc(p.brand)).replaceAll('{{tagline}}', esc(p.tagline))
+    .replaceAll('{{photoBlock}}', photoBlock).replaceAll('{{nameX}}', p.photo ? 535 : 1195).replaceAll('{{nameY}}', p.photo ? 740 : 830)
+    .replaceAll('{{wordmark}}', esc(p.wordmark)).replaceAll('{{signoff}}', esc(p.signoff)).replaceAll('{{name}}', esc(p.name)).replaceAll('{{brand}}', esc(p.brand)).replaceAll('{{tagline}}', esc(p.tagline))
     .replaceAll('{{caption}}', JSON.stringify(caption).replace(/<\//g, '<\\/')).replaceAll('{{robot}}', robotGroup());
   writeFileSync(join(dir, 'scenes', `${s.id}.html`), html);
 }

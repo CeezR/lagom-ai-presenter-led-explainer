@@ -32,8 +32,8 @@ Copy `templates/scene.html`. The contract:
 - `M.since(n)` = seconds since step n started (-1 if not yet). Use it to start motion at a cue.
 - `A.spin`, `A.swing`, `A.bob`, `A.belt`, `A.smoke`, `A.camera`, `M.sprites`, `M.journey` cover rotation, loops, conveyors, a
   moving viewBox camera and parcels that drop, hop and ride. `belt.js` (conveyor queues, piles) and `office.js` are optional kits.
-- `brandWrite(A, {steps, from, rest, writeDur})` (`brand.js`): the robot writes `#brand-text` (clipped by `#brand-clip-rect`),
-  draws `#brand-underline`, shows `#brand-tagline`, then hops aside and waves. Works without a robot too (the name just writes itself).
+- `brandWrite(A, {steps, from, rest, writeDur})` (`brand.js`): the word `#brand-text` writes itself (a robot can hold the marker if the scene has one) (clipped by `#brand-clip-rect`),
+  draws `#brand-underline`, shows `#brand-name`, `#brand-photo` and `#brand-tagline`.
 - Everything is a function of time, so a loop restart or a replay is always clean. Keep ambient motion running after the build.
 - Add motion only where it explains something. A still drawing with a caption is a fine slide.
 

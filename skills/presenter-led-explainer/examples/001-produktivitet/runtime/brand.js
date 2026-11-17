@@ -6,13 +6,13 @@
    <rect id="brand-clip-rect">, a <path id="brand-underline">, an optional <text id="brand-tagline">, and the robot group "robot"
    (with a marker in its right hand, inserted by build.mjs). */
 function brandWrite(L, o = {}) {
-  const S = o.scale ?? 1.5;                       // robot size
+  const S = o.scale ?? 1.8;                       // robot size
   const st = { fly: 1, write: 2, rest: 3, ...o.steps };   // which cue starts each phase
   const from = o.from ?? [-260, 420];             // where the robot flies in from (world px)
   const rest = o.rest ?? [1640, 840];             // where it ends, hovering
   const writeDur = o.writeDur ?? 3.2;
   const TIP = [74 * S, -10 * S];                  // marker tip relative to the robot's origin (hand at 74,-60, tip 50 below)
-  const text = L.el('brand-text'), clip = L.el('brand-clip-rect'), line = L.el('brand-underline'), tag = L.el('brand-tagline');
+  const text = L.el('brand-text'), clip = L.el('brand-clip-rect'), line = L.el('brand-underline'), tag = L.el('brand-tagline'), nm = L.el('brand-name'), ph = L.el('brand-photo');
   const box = () => { try { return text.getBBox(); } catch (e) { return { x: 0, y: 0, width: 0, height: 0 }; } };
   const writeK = () => { const a = M.since(st.write); return a < 0 ? 0 : M.clamp(a / writeDur); };
   // the marker tip runs along the word, a little up and down like handwriting
@@ -40,8 +40,10 @@ function brandWrite(L, o = {}) {
     if (line) {   // the orange underline, drawn once the word is done
       const y = base + fs * .14, d = `M${b.x + 10} ${y} C${b.x + b.width * .35} ${y + 16} ${b.x + b.width * .7} ${y - 8} ${b.x + b.width - 10} ${y + 4}`;
       if (line.getAttribute('d') !== d) { line.setAttribute('d', d); line._len = line.getTotalLength(); line.style.strokeDasharray = line._len; }
-      const a = M.since(st.rest); line.style.strokeDashoffset = line._len * (1 - (a < 0 ? 0 : M.easeOut(a / .8)));
+      const a = M.since(st.rest); line.style.strokeDashoffset = line._len * (1 - (a < 0 ? 0 : M.easeOut(a / .5)));
     }
-    if (tag) { const a = M.since(st.rest) - .6; tag.style.opacity = a < 0 ? 0 : M.clamp(a / .8); }
+    if (ph) { const a = M.since(st.rest), k = a < 0 ? 0 : M.clamp(a / .45); ph.style.opacity = k; ph.style.transformOrigin = '535px 470px'; ph.style.transform = `scale(${.9 + .1 * M.easeOut(k)})`; }   // the portrait pops in
+    if (nm) { const a = M.since(st.rest) - .1; nm.style.opacity = a < 0 ? 0 : M.clamp(a / .5); }   // the presenter's name, once the word is done
+    if (tag) { const a = M.since(st.rest) - .3; tag.style.opacity = a < 0 ? 0 : M.clamp(a / .5); }
   });
 }

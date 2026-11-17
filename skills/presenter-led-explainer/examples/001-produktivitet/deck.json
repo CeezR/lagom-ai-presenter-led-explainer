@@ -4,7 +4,10 @@
   "presenter": {
     "name": "César Forthomme",
     "brand": "Lagom AI",
-    "tagline": "AI begripligt och användbart för alla"
+    "tagline": "AI begripligt och användbart för alla",
+    "wordmark": "Lagom",
+    "photo": "profile.jpeg",
+    "signoff": "Vi ses i nästa video!"
   },
   "slides": [
     {
@@ -143,7 +146,8 @@
         "DRAFT: Jag heter César, och det här var Lagom AI. Vi ses i nästa video.",
         "DRAFT: Nästa video: [teaser kommer].",
         "DRAFT (valfritt): Länk i beskrivningen."
-      ]
+      ],
+      "template": "outro"
     }
   ]
 }
