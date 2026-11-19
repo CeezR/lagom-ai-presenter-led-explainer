@@ -62,6 +62,6 @@ build a deck they can talk to, get the recording running in the browser, and edi
 
 - Recordings (`*.mkv`, `*.mp4`, audio) stay local and gitignored. Never commit them or upload them anywhere without asking.
 - Never ask for, print or store API keys. Nothing in this skill needs one.
-- Follow `style/STYLE.md` unless the user gives another direction. Hand-authored SVG only, no raster images in decks.
+- Follow `style/STYLE.md` unless the user gives another direction. Hand-authored SVG only, no raster images in decks. The one exception is the presenter's own photo on the intro slide (e.g. `profile.jpeg` in the video folder).
 - Keep each slide simple. If a scene needs more than a few objects and one motion, split the slide.
 - Do not commit or publish unless the user asks.
