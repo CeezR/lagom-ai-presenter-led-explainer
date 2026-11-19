@@ -32,7 +32,7 @@ function install(flags) {
 }
 
 if (cmd === 'install') install(args);
-else if (['new', 'build', 'open', 'record', 'transcribe'].includes(cmd)) {
+else if (['new', 'build', 'open', 'record', 'transcribe', 'export'].includes(cmd)) {
   const r = spawnSync(process.execPath, [join(skillDir, 'scripts', `${cmd}.mjs`), ...args], { stdio: 'inherit' });
   process.exit(r.status ?? 1);
 } else {

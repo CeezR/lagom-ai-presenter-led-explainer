@@ -14,7 +14,9 @@ In the deck page:
 - Bubble position and size: add to the address, e.g. `?cam=bl` (bl, br, tl, tr) and `&size=22` (% of the page width).
 - On a screen wider than 16:9 the slides are pinned to the left edge, so the free strip on the right is where the bubble sits and it stays off the picture. Add `&align=center` to centre the slides instead.
 
-Video is written to disk once a second, so a crash loses at most a second. Output is WebM (VP9 + Opus, 30 fps).
+Video is written to disk once a second, so a crash loses at most a second. The raw take is WebM (VP9 + Opus) in `takes/`, a recording format that LinkedIn and most editors reject. When you stop, the page asks the
+server to turn it into an MP4 (`out/<same name>.mp4`, H.264 + AAC, constant 30 fps) and check it; the toast says when it is ready. That MP4 is the file to
+upload. To redo it, or to trim the end: `node scripts/export.mjs takes/<file>.webm --to <seconds>`. Needs ffmpeg; without it you keep the WebM.
 Nothing leaves the machine. If the browser blocks camera, microphone or screen capture (some company policies do),
 the page shows the error: ask IT, or use any other recorder and drop the file in `takes/`.
 Firefox and Safari cannot capture the current tab this way: use Chrome or Edge.

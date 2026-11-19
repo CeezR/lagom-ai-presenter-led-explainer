@@ -5,6 +5,17 @@
 import { createServer } from 'node:http';
 import { appendFileSync, createReadStream, existsSync, mkdirSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, normalize } from 'node:path';
+import { spawn } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+
+const EXPORT = fileURLToPath(new URL('./export.mjs', import.meta.url));
+/** Run export.mjs on a finished take. Resolves { ok, mp4, report } (the checks, or why it could not run). */
+const exportTake = file => new Promise(done => {
+  const p = spawn(process.execPath, [EXPORT, file], { stdio: ['ignore', 'pipe', 'pipe'] });
+  let log = ''; p.stdout.on('data', d => { log += d; }); p.stderr.on('data', d => { log += d; });
+  p.on('error', e => done({ ok: false, report: String(e) }));
+  p.on('close', code => done({ ok: code === 0, mp4: (log.match(/-> (.+\.mp4)/) ?? [])[1], report: log.split('\n').filter(l => /PASS|FAIL|not found|failed/.test(l)).join('\n') }));
+});
 
 const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json',
   '.svg': 'image/svg+xml', '.woff2': 'font/woff2', '.webm': 'video/webm', '.txt': 'text/plain; charset=utf-8' };
@@ -29,6 +40,12 @@ export function serve(dir, port = 4173) {
           if (url.searchParams.get('first') === '1') writeFileSync(file, body); else appendFileSync(file, body);
           res.writeHead(204).end();
         });
+        return;
+      }
+      if (url.pathname === '/api/export' && req.method === 'POST') {   // the recorder says the take is complete: make the checked MP4
+        const name = url.searchParams.get('name') ?? '';
+        if (!TAKE.test(name) || !existsSync(join(takes, name))) { res.writeHead(400).end('bad take name'); return; }
+        exportTake(join(takes, name)).then(r => { res.writeHead(200, { 'content-type': 'application/json' }).end(JSON.stringify(r)); });
         return;
       }
       const rel = normalize(decodeURIComponent(url.pathname === '/' ? '/index.html' : url.pathname)).replace(/^([/\\])+/, '');

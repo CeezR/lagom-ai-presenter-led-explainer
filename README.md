@@ -34,6 +34,7 @@ Run through npx or directly from the installed skill (`node <skill>/scripts/<nam
 | `open [video]` | Open the deck in your browser without recording (arrow keys = next slide, **N** speaker notes in a separate window) |
 | `record [video]` | Serve the deck on localhost and open it in Chrome/Edge. **R** start/stop recording, **N** notes window, F11 full screen. Takes are saved in `takes/` |
 | `transcribe <take>` | Whisper transcript, the basis for AI editing |
+| `export <take>` | WebM take to an upload-ready MP4 (H.264 + AAC, 30 fps) and a validity check; use this file for LinkedIn and YouTube |
 
 ## Requirements
 

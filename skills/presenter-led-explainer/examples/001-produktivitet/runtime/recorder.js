@@ -1,6 +1,6 @@
 /* Record the deck from inside the browser: webcam bubble + this tab + microphone -> takes/ via the local server.
    Why: replaces a separate recording program. Press R to start (3-2-1) and R again to stop. Works on http://localhost
-   (node scripts/record.mjs). Output is WebM; edit it with ffmpeg. */
+   (node scripts/record.mjs). The raw take is WebM (kept in takes/); when you stop, the server turns it into a checked MP4 in out/. */
 (() => {
   const local = location.protocol === 'http:' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
   const q = new URLSearchParams(location.search);
@@ -42,7 +42,13 @@
       await queue;
       [tab, cam].forEach(s => s.getTracks().forEach(t => t.stop()));
       bubble?.remove(); bubble = null; rec = null; state.recording = false; document.title = document.title.replace('● ', '');
-      toast(state.error ? 'Saving failed: ' + state.error : `Saved takes/${name}`);
+      if (state.error) { toast('Saving failed: ' + state.error, 8000); return; }
+      toast(`Saved takes/${name}. Making the MP4...`, 120000);   // the server re-encodes to an upload-ready MP4 and checks it (about 1 min per 10 min of video)
+      try {
+        const r = await (await fetch(`/api/export?name=${name}`, { method: 'POST' })).json();
+        state.mp4 = r.ok ? r.mp4 : null; state.exportReport = r.report;
+        toast(r.ok ? `MP4 ready and checked: out/${name.replace('.webm', '.mp4')}` : 'MP4 export failed (is ffmpeg installed?). The WebM is safe in takes/.', 10000);
+      } catch (err) { toast('MP4 export failed: ' + err.message, 10000); }
     };
     tab.getVideoTracks()[0].onended = () => rec && rec.state !== 'inactive' && rec.stop();   // the browser's own "Stop sharing" button
     rec.start(1000);

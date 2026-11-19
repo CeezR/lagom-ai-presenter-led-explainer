@@ -27,7 +27,7 @@ build a deck they can talk to, get the recording running in the browser, and edi
    full screen, **R** starts (3-2-1) and **R** stops, arrow keys go to the next slide, **N** opens the speaker notes in a
    separate window that is not recorded. The webcam appears as a bubble in the corner. Takes land in `videos/NNN-slug/takes/`.
    The user presents a few takes. Details: `reference/recording.md`.
-7. **Edit.** `node <skill>/scripts/transcribe.mjs takes/<file>` gives a transcript. Then follow `reference/editing.md`:
+7. **Export and edit.** Stopping a recording already makes a checked, upload-ready MP4 in `out/` (the raw WebM in `takes/` is not accepted by LinkedIn); redo or trim it with `node <skill>/scripts/export.mjs takes/<file> --to <seconds>`. `node <skill>/scripts/transcribe.mjs takes/<file>` gives a transcript. Then follow `reference/editing.md`:
    pick the best take, cut mistakes and dead air, add chapters, write the title and description. Keep the original takes.
 
 ## Slide rules (the presenter is winging it live)

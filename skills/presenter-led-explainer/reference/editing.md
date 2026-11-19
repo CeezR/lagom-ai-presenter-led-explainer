@@ -2,8 +2,9 @@
 
 Tools: `ffmpeg` (https://ffmpeg.org) and optionally `auto-editor` (`pip install auto-editor`). Keep the originals in `takes/`; write results to `out/` (gitignored).
 
-0. **Make it editable**: browser recordings are WebM without a duration. First re-encode once:
-   `ffmpeg -i takes/<file>.webm -c:v libx264 -crf 18 -c:a aac out/<name>.mp4`. Use that file below. The last second of a take shows the R key press: trim it.
+0. **Make it editable and uploadable**: browser recordings are WebM without a duration and with a variable frame rate; LinkedIn and most editors reject them. Run
+   `node scripts/export.mjs takes/<file>.webm` once: it writes `out/<file>.mp4` (H.264 + AAC, constant 30 fps) and checks it (streams, length, size limits, a full decode). Use that file below and for uploading.
+   The last second of a take shows the R key press: trim it with `--to <seconds>` (and `--ss` for the start).
 1. **Transcribe**: `node scripts/transcribe.mjs takes/<file>.webm` writes `.srt`, `.txt` and `.json` next to the take.
 2. **Choose the take**: read the transcripts, pick the one with the cleanest delivery. Tell the user which and why.
 3. **Cut dead air**: `auto-editor takes/<file>.webm --margin 0.3sec -o out/<name>.mp4`.
