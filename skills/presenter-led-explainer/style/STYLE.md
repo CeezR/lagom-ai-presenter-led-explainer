@@ -1,6 +1,6 @@
 # Default style: warm, simple, hand-drawn, object-only
 
-White background, readable on a phone. Hand-authored vector SVG: no raster, no tracing, no generated images.
+White background, readable on a phone. Hand-authored vector SVG: no raster, no tracing, no generated images. The only exception is the presenter's own photo on the intro slide.
 Use this unless the user gives another direction.
 
 ## Palette (one accent)
