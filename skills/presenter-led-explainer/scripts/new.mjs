@@ -25,8 +25,8 @@ if (existsSync(dir)) { console.error(dir, 'already exists'); process.exit(1); }
 const presenter = { name: flag('--name', 'Your Name'), brand: flag('--brand', 'Your Brand'), tagline: flag('--tagline', '') };
 const slides = [
   { id: 's01', title: 'Opening', notes: ['The question this video answers.', 'Why it matters.'] },
-  { id: 'intro', template: 'intro', title: 'Who I am', notes: ['Your name.', 'What you do, in one sentence.', 'Your brand and what it stands for.', 'What this channel explains.', 'What this video covers.'] },
-  { id: 'outro', template: 'outro', title: 'Sign-off', notes: ['The idea of this video in one sentence.', 'Sign-off: your name, your brand, see you in the next video.', 'Next video: ...', '(Optional) Link in the description.'] },
+  { id: 's02', template: 'intro', title: 'Who I am', notes: ['Your name.', 'What you do, in one sentence.', 'Your brand and what it stands for.', 'What this channel explains.', 'What this video covers.'] },
+  { id: 's03', template: 'outro', title: 'Sign-off', notes: ['The idea of this video in one sentence.', 'Sign-off: your name, your brand, see you in the next video.', 'Next video: ...', '(Optional) Link in the description.'] },
 ];
 mkdirSync(join(dir, 'scenes'), { recursive: true });
 mkdirSync(join(dir, 'takes'));

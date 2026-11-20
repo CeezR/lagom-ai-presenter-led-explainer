@@ -92,7 +92,7 @@ export function renderTemplate(dir, deck, s) {
   p.wordmark ??= p.brand;   // the big written word; defaults to the brand
   // photo (a file in the video folder, ideally square): a round portrait on the left with the name under it; without one the name sits under the tagline
   const photoBlock = p.photo ? `<g id="brand-photo" opacity="0"><clipPath id="photo-clip"><circle cx="535" cy="470" r="150"/></clipPath><image href="../${esc(p.photo)}" x="385" y="320" width="300" height="300" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo-clip)"/><circle cx="535" cy="470" r="156" fill="none" stroke="#F07A1A" stroke-width="10"/></g>` : '';
-  const caption = s.caption ?? esc([p.name, p.brand].filter(Boolean).join(' · '));   // s.caption may use <em> like any caption
+  const caption = s.caption ?? esc((s.template === 'outro' ? [p.brand] : [p.name, p.brand]).filter(Boolean).join(' · '));   // the outro leaves the name to the intro   // s.caption may use <em> like any caption
   const html = readFileSync(join(skillDir, 'templates', `${s.template}.html`), 'utf8')
     .replaceAll('{{id}}', s.id).replaceAll('{{lang}}', deck.lang ?? 'en').replaceAll('{{title}}', esc(s.title ?? s.id))
     .replaceAll('{{photoBlock}}', photoBlock).replaceAll('{{nameX}}', p.photo ? 535 : 1195).replaceAll('{{nameY}}', p.photo ? 740 : 830)
@@ -105,6 +105,8 @@ export function renderTemplate(dir, deck, s) {
 export function build(dir) {
   const deck = JSON.parse(readFileSync(join(dir, 'deck.json'), 'utf8'));
   for (const s of deck.slides) if (s.template) renderTemplate(dir, deck, s);
+  const ids = deck.slides.map(s => s.id);
+  if (ids.join() !== [...ids].sort().join()) console.warn('note: slide ids are not in play order; run renumber.mjs so scenes/ lists them as they play');
   for (const s of deck.slides) if (!existsSync(join(dir, 'scenes', `${s.id}.html`))) console.warn(`warning: scenes/${s.id}.html is missing`);
   writeFileSync(join(dir, 'index.html'), deckPage(deck));
   console.log(`built ${deck.slides.length} slides -> ${join(dir, 'index.html')}`);

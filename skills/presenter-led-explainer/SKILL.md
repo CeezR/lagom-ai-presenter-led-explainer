@@ -15,12 +15,13 @@ build a deck they can talk to, get the recording running in the browser, and edi
 2. **Scaffold.** From the user's project root run `node <skill>/scripts/new.mjs <slug> [--title "..."] [--lang sv]`.
    Add `--name "..." --brand "..." [--tagline "..."]` for the presenter (ask the user once; they land in `deck.json` "presenter").
    This creates `videos/NNN-slug/` with `script.md`, `deck.json`, `scenes/`, `runtime/` and `takes/`, and a deck that already has
-   the three fixed slides: the hook (`s01`), the intro (`intro`) and the outro (`outro`).
+   the three fixed slides: the hook (`s01`), the intro (`s02`, `"template": "intro"`) and the outro (the last id, `"template": "outro"`).
 3. **Write `script.md`.** Start with the hook, then the intro, end with the outro (see "Start and end" below). One section per slide, in the language the user will speak. It is a listening script: the user
    reads or hears it to prepare, then talks freely on camera. They do not read it aloud. Short sentences, concrete examples.
 4. **Build the deck.** One slide = one entry in `deck.json` (`id`, `title`, `notes`) + one file `scenes/<id>.html`.
    Read `reference/deck-format.md` for the page contract and `style/STYLE.md` for the look. Follow the slide rules below.
-   Run `node <skill>/scripts/build.mjs` after changing `deck.json`.
+   Run `node <skill>/scripts/build.mjs` after changing `deck.json`. A scene is one self-contained HTML file: the drawing plus a short `<script>` at the end.
+   After any change to the slides run `node <skill>/scripts/capture.mjs`: it writes `scenes/<id>.png` for every slide and `overview.png` next to `deck.json` (all slides in one grid; both git-ignored), so the deck can be reviewed without opening HTML.
 5. **Review with the user.** Run `node <skill>/scripts/open.mjs`. The user steps through the deck with the arrow keys (N = notes
    window). Iterate until they approve the script and the slides. Do not record before they approve.
 6. **Record.** `node <skill>/scripts/record.mjs` serves the deck on localhost and opens it in Chrome or Edge. In the page: F11 for

@@ -12,3 +12,7 @@ videos/*/out/
 
 .DS_Store
 node_modules/
+
+# Captured slide pictures and the overview (regenerate with the capture command)
+**/scenes/*.png
+**/overview.png

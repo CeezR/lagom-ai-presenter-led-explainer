@@ -19,7 +19,7 @@
       ]
     },
     {
-      "id": "intro",
+      "id": "s02",
       "template": "intro",
       "title": "Det här är jag",
       "notes": [
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "id": "s02",
+      "id": "s03",
       "title": "Riksbanken",
       "notes": [
         "41 av Sveriges största företag.",
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "id": "s03",
+      "id": "s04",
       "title": "Teamet som ett band",
       "notes": [
         "Varje ändring är ett paket.",
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "id": "s04",
+      "id": "s05",
       "title": "AI-kollegan",
       "notes": [
         "Utvecklarna får en AI-kollega.",
@@ -57,7 +57,7 @@
       ]
     },
     {
-      "id": "s05",
+      "id": "s06",
       "title": "Flaskhalsen",
       "notes": [
         "Paketen hinner iväg, men användarna väntar lika länge.",
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": "s06",
+      "id": "s07",
       "title": "Ångfabriken",
       "notes": [
         "Paul David: elen kom runt 1900.",
@@ -76,7 +76,7 @@
       ]
     },
     {
-      "id": "s07",
+      "id": "s08",
       "title": "Elmotorn i den gamla fabriken",
       "notes": [
         "Bytte ångmaskinen mot en elmotor, axeln satt kvar.",
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "id": "s08",
+      "id": "s09",
       "title": "Den nya fabriken",
       "notes": [
         "En liten motor i varje maskin.",
@@ -94,7 +94,7 @@
       ]
     },
     {
-      "id": "s09",
+      "id": "s10",
       "title": "Datorerna",
       "notes": [
         "Solow 1987: syns överallt utom i statistiken.",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "id": "s10",
+      "id": "s11",
       "title": "Kontoren byggs om",
       "notes": [
         "Produktiviteten i USA tog fart sent 90-tal.",
@@ -112,7 +112,7 @@
       ]
     },
     {
-      "id": "s11",
+      "id": "s12",
       "title": "J-kurvan",
       "notes": [
         "Tid längs botten, produktivitet uppåt.",
@@ -121,7 +121,7 @@
       ]
     },
     {
-      "id": "s12",
+      "id": "s13",
       "title": "J-kurvan: uppförsbacken",
       "notes": [
         "Tid och pengar går till sådant som inte syns: lära om, bygga om.",
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "id": "outro",
+      "id": "s14",
       "title": "Avslutning",
       "notes": [
         "DRAFT: Ett snabbare steg ger inte snabbare arbete – lyftet kommer när arbetet byggs om runt AI.",

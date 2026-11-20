@@ -20,7 +20,7 @@ Om alla blir snabbare med AI, varför syns det inte i siffrorna?
 
 ## Intro (UTKAST)
 
-Utkast, formuleringen är inte klar. Talas fritt, ca 15–20 s. **Scen:** intro (roboten skriver "Lagom AI").
+Utkast, formuleringen är inte klar. Talas fritt, ca 15–20 s. **Scen:** S02 ("Lagom" skrivs, sedan foto, namn och slogan).
 
 - Hej, jag heter César Forthomme.
 - Systemutvecklare, bygger med AI-agenter varje dag.
@@ -32,19 +32,19 @@ Utkast, formuleringen är inte klar. Talas fritt, ca 15–20 s. **Scen:** intro 
 
 Riksbanken frågade 41 av Sveriges största företag. Nästan alla använder AI.
 
-*11 ord* · **Scen:** S02 · Källa: Riksbanken, pressmeddelande 11 mars 2026 om företagsundersökningen feb 2026: 41 av Sveriges största företag intervjuade 29 jan–9 feb 2026; 'I stort sett samtliga företag använder AI … Än så länge är dock effekterna av AI på verksamheten relativt små.' https://www.riksbank.se/sv/press-och-publicerat/nyheter-och-pressmeddelanden/pressmeddelanden/2026/riksbankens-foretagsundersokning-det-ar-ingen-sjalvklar-aterhamtning-men-vi-ser-att-det-anda-hander/ (verifierad 14 nov 2026)
+*11 ord* · **Scen:** S03 · Källa: Riksbanken, pressmeddelande 11 mars 2026 om företagsundersökningen feb 2026: 41 av Sveriges största företag intervjuade 29 jan–9 feb 2026; 'I stort sett samtliga företag använder AI … Än så länge är dock effekterna av AI på verksamheten relativt små.' https://www.riksbank.se/sv/press-och-publicerat/nyheter-och-pressmeddelanden/pressmeddelanden/2026/riksbankens-foretagsundersokning-det-ar-ingen-sjalvklar-aterhamtning-men-vi-ser-att-det-anda-hander/ (verifierad 14 nov 2026)
 
 ## 3
 
 Men effekten är än så länge liten.
 
-*7 ord* · **Scen:** S02 · Källa: Riksbanken, pressmeddelande 11 mars 2026 om företagsundersökningen feb 2026: 41 av Sveriges största företag intervjuade 29 jan–9 feb 2026; 'I stort sett samtliga företag använder AI … Än så länge är dock effekterna av AI på verksamheten relativt små.' https://www.riksbank.se/sv/press-och-publicerat/nyheter-och-pressmeddelanden/pressmeddelanden/2026/riksbankens-foretagsundersokning-det-ar-ingen-sjalvklar-aterhamtning-men-vi-ser-att-det-anda-hander/ (verifierad 14 nov 2026)
+*7 ord* · **Scen:** S03 · Källa: Riksbanken, pressmeddelande 11 mars 2026 om företagsundersökningen feb 2026: 41 av Sveriges största företag intervjuade 29 jan–9 feb 2026; 'I stort sett samtliga företag använder AI … Än så länge är dock effekterna av AI på verksamheten relativt små.' https://www.riksbank.se/sv/press-och-publicerat/nyheter-och-pressmeddelanden/pressmeddelanden/2026/riksbankens-foretagsundersokning-det-ar-ingen-sjalvklar-aterhamtning-men-vi-ser-att-det-anda-hander/ (verifierad 14 nov 2026)
 
 ## 4
 
 Det har ett namn: produktivitetsparadoxen.
 
-*5 ord* · **Scen:** S02 · Källa: Etablerat begrepp (även Solow-paradoxen); knyts till Solow i beat 30.
+*5 ord* · **Scen:** S03 · Källa: Etablerat begrepp (även Solow-paradoxen); knyts till Solow i beat 30.
 
 # Akt 2 · Teamet
 
@@ -52,37 +52,37 @@ Det har ett namn: produktivitetsparadoxen.
 
 Tänk dig ett utvecklingsteam på ett stort företag.
 
-*8 ord* · **Scen:** S03 · Källa: Påhittat exempel, inga siffror.
+*8 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
 
 ## 6
 
 Varje ändring är ett paket på ett band.
 
-*8 ord* · **Scen:** S03 · Källa: Påhittat exempel, inga siffror.
+*8 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
 
 ## 7
 
 Utvecklare, granskning, test, godkännande. Sist: användarna.
 
-*6 ord* · **Scen:** S03 · Källa: Påhittat exempel, inga siffror.
+*6 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
 
 ## 8
 
 Nu får utvecklarna en AI-kollega. Tangentbordet glöder.
 
-*8 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
+*8 ord* · **Scen:** S05 · Källa: Påhittat exempel, inga siffror.
 
 ## 9
 
 Paketen flyger iväg. Fler än någonsin.
 
-*6 ord* · **Scen:** S04 · Källa: Påhittat exempel, inga siffror.
+*6 ord* · **Scen:** S05 · Källa: Påhittat exempel, inga siffror.
 
 ## 10
 
 Men hos användarna? Lika lång väntan som förut.
 
-*8 ord* · **Scen:** S05 · Källa: Påhittat exempel, inga siffror.
+*8 ord* · **Scen:** S06 · Källa: Påhittat exempel, inga siffror.
 
 # Akt 3 · Flaskhalsen
 
@@ -90,25 +90,25 @@ Men hos användarna? Lika lång väntan som förut.
 
 Paketen står i kö. Framför granskningen. Framför testet. Framför godkännandet.
 
-*10 ord* · **Scen:** S05 · Källa: Påhittat exempel, inga siffror.
+*10 ord* · **Scen:** S06 · Källa: Påhittat exempel, inga siffror.
 
 ## 12
 
 Ett flöde går aldrig fortare än sitt långsammaste steg.
 
-*9 ord* · **Scen:** S05 · Källa: Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
+*9 ord* · **Scen:** S06 · Källa: Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
 
 ## 13
 
 Det kallas teorin om begränsningar. Från Eliyahu Goldratts bok Målet, 1984.
 
-*12 ord* · **Scen:** S05 · Källa: Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
+*12 ord* · **Scen:** S06 · Källa: Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
 
 ## 14
 
 Gör man ett annat steg snabbare, växer bara högen framför flaskhalsen.
 
-*11 ord* · **Scen:** S05 · Källa: Vår förenkling av Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
+*11 ord* · **Scen:** S06 · Källa: Vår förenkling av Goldratt & Cox, The Goal (1984). https://www.tocinstitute.org/history-of-toc.html ; https://www.lean.org/lexicon-terms/theory-of-constraints/
 
 # Akt 4 · Elektriciteten
 
@@ -214,37 +214,37 @@ Samma sak hände med datorerna.
 
 Kontoren fick en dator på varje skrivbord. Men blanketterna fanns kvar. Pärmarna. Stämplarna.
 
-*13 ord* · **Scen:** S11 · Källa: Illustration av Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23 (datorer ovanpå gamla processer).
+*13 ord* · **Scen:** S10 · Källa: Illustration av Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23 (datorer ovanpå gamla processer).
 
 ## 34
 
 Man skrev ut från en dator, och skrev in samma sak i nästa.
 
-*13 ord* · **Scen:** S11 · Källa: Påhittad illustration, ingen källa för detaljen.
+*13 ord* · **Scen:** S10 · Källa: Påhittad illustration, ingen källa för detaljen.
 
 ## 35
 
 Datorn gjorde gamla steg lite snabbare. Men pappret gick samma väg som förut, från bord till bord.
 
-*17 ord* · **Scen:** S11 · Källa: Vår tolkning. Illustration av Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23
+*17 ord* · **Scen:** S10 · Källa: Vår tolkning. Illustration av Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23
 
 ## 36
 
 I slutet av 90-talet tog produktiviteten i USA äntligen fart.
 
-*11 ord* · **Scen:** S12 · Källa: BLS, Monthly Labor Review, april 2021 (Sprague, 'The U.S. productivity slowdown'): 'late 1990s surge', 3,3 %/år 1998–2005 i nonfarm business. https://www.bls.gov/opub/mlr/2021/article/the-us-productivity-slowdown-the-economy-wide-and-industry-level-analysis.htm
+*11 ord* · **Scen:** S11 · Källa: BLS, Monthly Labor Review, april 2021 (Sprague, 'The U.S. productivity slowdown'): 'late 1990s surge', 3,3 %/år 1998–2005 i nonfarm business. https://www.bls.gov/opub/mlr/2021/article/the-us-productivity-slowdown-the-economy-wide-and-industry-level-analysis.htm
 
 ## 37
 
 Forskarna Erik Brynjolfsson och Lorin Hitt såg ett mönster. Lyftet kom hos de företag som också byggde om arbetet runt datorerna.
 
-*21 ord* · **Scen:** S12 · Källa: Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23
+*21 ord* · **Scen:** S11 · Källa: Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23
 
 ## 38
 
 Färre mellansteg. Beslut närmare jobbet. Information som gick direkt, inte via pärmar.
 
-*12 ord* · **Scen:** S12 · Källa: Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23 (decentraliserat beslutsfattande, nya processer). Detaljerna är vår förenkling.
+*12 ord* · **Scen:** S11 · Källa: Brynjolfsson & Hitt, 'Beyond Computation', Journal of Economic Perspectives 14(4), 2000, s. 23–48: värdet av IT hänger på kompletterande organisationsförändringar (nya processer, arbetssätt); datorer utan organisationsförändring kan till och med sänka produktiviteten. https://www.aeaweb.org/articles?id=10.1257/jep.14.4.23 (decentraliserat beslutsfattande, nya processer). Detaljerna är vår förenkling.
 
 # Akt 6 · J-kurvan
 
@@ -252,59 +252,59 @@ Färre mellansteg. Beslut närmare jobbet. Information som gick direkt, inte via
 
 Ekonomer ritar det här som en kurva. Vi tar den bit för bit.
 
-*13 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
+*13 ord* · **Scen:** S12 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
 
 ## 40
 
 Längs botten går tiden. Uppåt går produktiviteten: hur mycket som blir klart.
 
-*12 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (axlarna är vår förenkling; i artikeln: uppmätt produktivitet över tid).
+*12 ord* · **Scen:** S12 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (axlarna är vår förenkling; i artikeln: uppmätt produktivitet över tid).
 
 ## 41
 
 Här kommer den nya tekniken. Man kunde tro att linjen går rakt upp.
 
-*13 ord* · **Scen:** S13 · Källa: Vår tolkning.
+*13 ord* · **Scen:** S12 · Källa: Vår tolkning.
 
 ## 42
 
 Men först går den ner. En svacka.
 
-*7 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
+*7 ord* · **Scen:** S12 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
 
 ## 43
 
 Tid och pengar går till sådant som inte syns i siffrorna. Att lära om. Att bygga om. Nya arbetssätt.
 
-*19 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (immateriella investeringar: nya processer, kunskap).
+*19 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (immateriella investeringar: nya processer, kunskap).
 
 ## 44
 
 Sedan, när det nya arbetssättet sitter, vänder kurvan. Och stiger brant.
 
-*11 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
+*11 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
 
 ## 45
 
 Den liknar bokstaven J. Därför kallas den produktivitetens J-kurva.
 
-*10 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
+*10 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
 
 ## 46
 
 I början visar siffrorna kostnaden, men ännu inte nyttan.
 
-*9 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
+*9 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386
 
 ## 47
 
 Elen gick genom den. Datorerna gick genom den. Och nu står AI i början av den.
 
-*16 ord* · **Scen:** S14 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (artikeln nämner AI som GPT). 'AI i början av kurvan' är vår tolkning, ingen prognos.
+*16 ord* · **Scen:** S13 · Källa: Brynjolfsson, Rock & Syverson, 'The Productivity J-Curve', AEJ: Macroeconomics 13(1), 2021, s. 333–372: kompletterande, ofta immateriella investeringar mäts dåligt, så uppmätt produktivitet underskattas först och överskattas senare. https://www.aeaweb.org/articles?id=10.1257/mac.20180386 (artikeln nämner AI som GPT). 'AI i början av kurvan' är vår tolkning, ingen prognos.
 
 ## Outro (UTKAST)
 
-Utkast. Talas fritt, ca 15 s. **Scen:** outro (foto, "Lagom" och "Vi ses i nästa video!").
+Utkast. Talas fritt, ca 15 s. **Scen:** S14 ("Lagom" och "Vi ses i nästa video!", utan namn och foto).
 
 - Ett snabbare steg ger inte snabbare arbete. Lyftet kommer när arbetet byggs om runt AI.
 - Jag heter César, och det här var Lagom AI. Vi ses i nästa video.

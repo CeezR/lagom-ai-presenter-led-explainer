@@ -265,6 +265,7 @@ const M = (() => {
     const b = document.body.dataset;
     state.switch = JSON.parse(b.switch || '[0]'); state.cues = JSON.parse(b.cues || '[]'); state.loop = +(b.loop || 0);
     const q = new URLSearchParams(location.search), inDeck = window.parent !== window;
+    if (q.has('still')) document.documentElement.classList.add('still');   // ?still: no CSS animation (captions complete), used by scripts/capture.mjs
     fit(); addEventListener('resize', fit);
     run(+(q.get('at') || 0));
     const go = () => { if (!state.running) { state.running = true; requestAnimationFrame(tick); } };

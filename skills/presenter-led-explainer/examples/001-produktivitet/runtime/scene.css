@@ -13,3 +13,4 @@ html,body{margin:0;height:100%;background:#fff;overflow:hidden;font-family:Kalam
 #cap em{font-style:normal;color:var(--orange)}
 #cap.write{animation:write 1s cubic-bezier(.3,.7,.2,1) both}
 @keyframes write{from{clip-path:inset(0 100% 0 0);opacity:.2}to{clip-path:inset(0 0 0 0);opacity:1}}
+html.still *{animation:none!important;transition:none!important}
