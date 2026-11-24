@@ -6,7 +6,7 @@
    16:9, 1:1, 4:5 or 9:16 and under 30 fps, then verifies the file (streams, limits, A/V length, a full decode) and prints a pass/fail report.
    Needs ffmpeg and ffprobe on PATH. Never touches the take. Writes next to videos/NNN/out/ (or beside the file if it is not in takes/).
    Run: node export.mjs <take.webm> [--out file.mp4] [--crf 20] [--ss 0] [--to 389] [--keep-size] */
-import { closeSync, existsSync, mkdirSync, openSync, readSync, statSync } from 'node:fs';
+import { closeSync, existsSync, mkdirSync, openSync, readSync, renameSync, rmSync, statSync } from 'node:fs';
 import { basename, dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
@@ -16,7 +16,7 @@ const valued = ['--out', '--crf', '--ss', '--to'].map(n => flag(n));
 const keepSize = args.includes('--keep-size');   // skip the 16:9 frame and keep the recorded size
 const input = args.find(a => !a.startsWith('--') && !valued.includes(a));
 if (!input || !existsSync(input)) { console.error('usage: export <take.webm> [--out file.mp4] [--crf 20] [--ss START] [--to END]'); process.exit(1); }
-for (const t of ['ffmpeg', 'ffprobe']) if (spawnSync(t, ['-version']).error) { console.error(`${t} not found. Install ffmpeg: https://ffmpeg.org`); process.exit(1); }
+for (const t of ['ffmpeg', 'ffprobe']) if (spawnSync(t, ['-version'], { windowsHide: true }).error) { console.error(`${t} not found. Install ffmpeg: https://ffmpeg.org`); process.exit(1); }
 
 const src = resolve(input);
 const outDir = basename(dirname(src)) === 'takes' ? join(dirname(dirname(src)), 'out') : dirname(src);
@@ -24,16 +24,20 @@ mkdirSync(outDir, { recursive: true });
 const out = resolve(flag('--out', join(outDir, basename(src).replace(/\.\w+$/, '') + '.mp4')));
 if (out === src) { console.error('refusing to overwrite the input'); process.exit(1); }
 
-// 1. encode: constant 30 fps (fixes the timestamps), 4:2:0 8-bit, High profile, stereo AAC, moov atom first
+// 1. encode: constant 30 fps (fixes the timestamps), 4:2:0 8-bit, High profile, stereo AAC, moov atom first.
+//    ffmpeg writes the index last, so it encodes to <out>.part and only a finished file gets the .mp4 name:
+//    an interrupted export never leaves an .mp4 that will not open.
 const trim = [...(flag('--ss') ? ['-ss', flag('--ss')] : []), ...(flag('--to') ? ['-to', flag('--to')] : [])];
+const part = out + '.part';
 console.log(`encoding ${basename(src)} -> ${out}`);
 const enc = spawnSync('ffmpeg', ['-y', '-v', 'error', '-stats', ...trim, '-i', src,
   '-vf', (keepSize ? 'fps=30000/1001,scale=trunc(iw/2)*2:trunc(ih/2)*2' : 'fps=30000/1001,scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2:white,setsar=1') + ',format=yuv420p', '-c:v', 'libx264', '-preset', 'medium', '-crf', flag('--crf', '20'), '-profile:v', 'high', '-level', '4.2',
-  '-af', 'aresample=async=1:first_pts=0', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', out], { stdio: 'inherit' });
-if (enc.status !== 0) { console.error('ffmpeg failed'); process.exit(1); }
+  '-af', 'aresample=async=1:first_pts=0', '-c:a', 'aac', '-b:a', '160k', '-ar', '48000', '-ac', '2', '-movflags', '+faststart', '-f', 'mp4', part], { stdio: 'inherit', windowsHide: true });
+if (enc.status !== 0) { rmSync(part, { force: true }); console.error('ffmpeg failed'); process.exit(1); }
+renameSync(part, out);
 
 // 2. verify
-const probe = JSON.parse(spawnSync('ffprobe', ['-v', 'error', '-show_format', '-show_streams', '-of', 'json', out], { encoding: 'utf8' }).stdout || '{}');
+const probe = JSON.parse(spawnSync('ffprobe', ['-v', 'error', '-show_format', '-show_streams', '-of', 'json', out], { encoding: 'utf8', windowsHide: true }).stdout || '{}');
 const v = probe.streams?.find(s => s.codec_type === 'video'), a = probe.streams?.find(s => s.codec_type === 'audio'), f = probe.format ?? {};
 const fps = v ? v.avg_frame_rate.split('/').reduce((x, y) => x / y) : 0, dur = +f.duration, size = statSync(out).size;
 const top = (() => {   // is the moov atom before the media data? (the browser can start playing / the uploader can read it from the front)
@@ -41,7 +45,7 @@ const top = (() => {   // is the moov atom before the media data? (the browser c
   try { for (let i = 0; i < 8; i++) { const h = Buffer.alloc(16); if (!readSync(fd, h, 0, 16, pos)) break; let n = h.readUInt32BE(0); names.push(h.toString('latin1', 4, 8)); if (n === 1) n = Number(h.readBigUInt64BE(8)); if (!n) break; pos += n; } } finally { closeSync(fd); }
   return names;
 })();
-const dec = spawnSync('ffmpeg', ['-v', 'error', '-i', out, '-f', 'null', '-'], { encoding: 'utf8' });
+const dec = spawnSync('ffmpeg', ['-v', 'error', '-i', out, '-f', 'null', '-'], { encoding: 'utf8', windowsHide: true });
 const decodeErrors = (dec.stderr || '').split('\n').filter(Boolean).length;
 const checks = [
   ['container is MP4', /mp4/.test(f.format_name ?? '')],
